@@ -1,0 +1,16 @@
+{
+    "devMode": false,
+    "version": "0.1",
+
+    // 静态资源
+    "staticCDN": "/build",
+
+    "redisHost": "127.0.0.1",
+    "redisPort": "6379",
+    "sessionSecret": "kiwi_blog",
+    "cookieName": "kiwi_blog",
+
+    // 又拍云账户
+    "upyunBuckname" : "kiwipics",
+    "upyunPath": "http://kiwipics.b0.upaiyun.com"
+}
