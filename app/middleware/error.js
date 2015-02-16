@@ -10,7 +10,7 @@ module.exports = function *(next) {
     } catch (error) {
         this.app.emit('error', error)
 
-        if (/\/article\/.*/.test(this.request.path)) {
+        if (/\/api\/.*/.test(this.request.path)) {
             // json SyntaxError
             if (error.status === 400 && typeof error.body === 'string') {
                 this.status = 400

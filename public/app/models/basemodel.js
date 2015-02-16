@@ -170,18 +170,6 @@ KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
         },
         sync: function (callback) {
             var model = this;
-
-            //如果流控已经介入，则需要同步的model交给流控去处理
-            SyncCounter++;
-            if (SyncCounter == 1) {
-                //Bar.show('正在处理...');
-            }
-            
-            if (ProcessController.isIntervene()) {
-                ProcessController.addWaitModel(model, options);
-                return;
-            }
-            
             var data;
             var url = model.get('url');
             var options = model.get('options') || {};
@@ -201,7 +189,7 @@ KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
 
             // 转换为restful接口
             if (/\{.*\}/.test(url)) {
-                url = S.substitute(url, data);
+                url = S.substitute(url, model['$' + type.toUpperCase()]);
             }
 
             var params = {
@@ -255,5 +243,9 @@ KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
         }
     });
 }, {
-    requires: ["mxext/model", "ajax", "app/util/util"]
+    requires: [
+        "mxext/model", 
+        "ajax",
+        "app/util/util"
+    ]
 });

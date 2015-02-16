@@ -4,17 +4,27 @@ KISSY.add("app/models/modelmanager", function (S, BaseManager, BaseModel) {
         // 获取文章列表
         {
             name: 'article_list',
-            url: '/article/article'
+            url: '/api/article'
         },
         // 获取文章列表
         {
             name: 'article_detail',
-            url: '/article/article/{id}'
+            url: '/api/article/{id}'
         },
         // 根据标签获取文章列表
         {
             name: 'article_list_by_tag',
-            url: '/article/getArticleByTag'
+            url: '/api/getArticleByTag'
+        },
+        // 归档
+        {
+            name: 'archive',
+            url: '/api/archive'
+        },
+        // 标签
+        {
+            name: 'tag_list',
+            url: '/api/tag'
         },
         // 获取文章列表
         {
@@ -26,7 +36,6 @@ KISSY.add("app/models/modelmanager", function (S, BaseManager, BaseModel) {
             name: 'manage_article_detail',
             url: '/manage/getArticleById'
         },
-
         // 文章添加
         {
             name: 'article_add',
@@ -69,16 +78,6 @@ KISSY.add("app/models/modelmanager", function (S, BaseManager, BaseModel) {
             name: 'manage_tag_list',
             url: '/manage/getTags'
         },
-        // 归档
-        {
-            name: 'archive',
-            url: '/article/archive'
-        },
-        // 标签
-        {
-            name: 'tag_list',
-            url: '/article/getTags'
-        },
         // 获取登录信息
         {
             name: 'login_msg',
@@ -97,7 +96,6 @@ KISSY.add("app/models/modelmanager", function (S, BaseManager, BaseModel) {
             name: 'logout',
             url: '/logout'
         }
-
     ]);
     return Manager;
 }, {

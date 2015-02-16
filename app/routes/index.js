@@ -4,11 +4,14 @@ module.exports = function (app) {
     app.use(route.get('/', require('../controllers/site/index')));
     app.use(route.get('/debug', require('../controllers/site/debug')));
 
+    // 前台接口
     app.use(route.get('/api/article', require('../controllers/article/multi')));
     app.use(route.get('/api/article/:id', require('../controllers/article/read')));
     app.use(route.get('/api/archive', require('../controllers/article/archive')));
-    app.use(route.get('/api/tag', require('../controllers/tag/multi')));
+    app.use(route.get('/api/tag', require('../controllers/article/tag')));
 
+    // 后台接口
+    
 
     // // 根据标签获取文章列表
     // app.get('/article/getArticleByTag', article.getArticleByTag);
