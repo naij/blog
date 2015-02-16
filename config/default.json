@@ -1,0 +1,14 @@
+{
+    "debug": true,
+    "version": "0.1",
+
+    // 静态资源
+    "staticCDN": "",
+
+    // 端口号
+    "port": 3000,
+
+    // 又拍云账户
+    "upyunBuckname" : "kiwipics",
+    "upyunPath": "http://kiwipics.b0.upaiyun.com"
+}
