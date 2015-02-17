@@ -32,7 +32,7 @@ KISSY.add("app/views/manage/picture/list", function (S, View, MM, VOM, Router, N
             me.manage('endTime', endTime);
 
             me.manage(MM.fetchAll([{
-                name: "picture_list",
+                name: "manage_picture_list",
                 urlParams: {
                     startTime: startTime,
                     endTime: endTime
@@ -41,10 +41,9 @@ KISSY.add("app/views/manage/picture/list", function (S, View, MM, VOM, Router, N
                 var data = MesModel.get('data');
 
                 me.setViewPagelet({
-                    list: data.list,
+                    list: data,
                     startTime: Util.dateFormat(startTime),
-                    endTime: Util.dateFormat(endTime),
-                    pathPrefix: data.pathPrefix
+                    endTime: Util.dateFormat(endTime)
                 }, function () {
                     me.components();
                 });

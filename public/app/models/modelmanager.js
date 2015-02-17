@@ -14,7 +14,7 @@ KISSY.add("app/models/modelmanager", function (S, BaseManager, BaseModel) {
         // 根据标签获取文章列表
         {
             name: 'article_list_by_tag',
-            url: '/api/getArticleByTag'
+            url: '/api/article/{tag}'
         },
         // 归档
         {
@@ -26,67 +26,15 @@ KISSY.add("app/models/modelmanager", function (S, BaseManager, BaseModel) {
             name: 'tag_list',
             url: '/api/tag'
         },
-        // 获取文章列表
-        {
-            name: 'manage_article_list',
-            url: '/manage/getArticles'
-        },
-        // 获取文章列表
-        {
-            name: 'manage_article_detail',
-            url: '/manage/getArticleById'
-        },
-        // 文章添加
-        {
-            name: 'article_add',
-            url: '/manage/articleAdd',
-            options: {
-                type: 'post'
-            }
-        },
-        // 文章编辑
-        {
-            name: 'article_edit',
-            url: '/manage/articleEdit',
-            options: {
-                type: 'post'
-            }
-        },
-        // 文章删除
-        {
-            name: 'article_del',
-            url: '/manage/articleDel',
-            options: {
-                type: 'post'
-            }
-        },
-        // 图片列表
-        {
-            name: 'picture_list',
-            url: '/manage/getPictures'
-        },
-        // 图片添加
-        {
-            name: 'picture_add',
-            url: '/manage/pictureAdd',
-            options: {
-                type: 'post'
-            }
-        },
-        // 标签列表
-        {
-            name: 'manage_tag_list',
-            url: '/manage/getTags'
-        },
         // 获取登录信息
         {
             name: 'login_msg',
-            url: '/loginMsg'
+            url: '/api/loginMsg'
         },
         // 登录
         {
             name: 'login',
-            url: '/login',
+            url: '/api/login',
             options: {
                 type: 'post'
             }
@@ -94,7 +42,53 @@ KISSY.add("app/models/modelmanager", function (S, BaseManager, BaseModel) {
         // 登出
         {
             name: 'logout',
-            url: '/logout'
+            url: '/api/logout'
+        },
+        // 获取文章列表
+        {
+            name: 'manage_article_list',
+            url: '/manage/article'
+        },
+        // 获取文章列表
+        {
+            name: 'manage_article_detail',
+            url: '/manage/article/{id}'
+        },
+        // 文章添加
+        {
+            name: 'manage_article_add',
+            url: '/manage/article',
+            options: {
+                type: 'post'
+            }
+        },
+        // 文章编辑
+        {
+            name: 'manage_article_edit',
+            url: '/manage/article/{id}',
+            options: {
+                type: 'post',
+                restfulType: 'put'
+            }
+        },
+        // 文章删除
+        {
+            name: 'manage_article_del',
+            url: '/manage/article/{id}',
+            options: {
+                type: 'post',
+                restfulType: 'delete'
+            }
+        },
+        // 标签列表
+        {
+            name: 'manage_tag_list',
+            url: '/manage/tag'
+        },
+        // 图片列表
+        {
+            name: 'manage_picture_list',
+            url: '/manage/pic'
         }
     ]);
     return Manager;

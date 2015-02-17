@@ -1,6 +1,7 @@
 var route = require('koa-route');
 
 module.exports = function (app) {
+    // 首页
     app.use(route.get('/', require('../controllers/site/index')));
     app.use(route.get('/debug', require('../controllers/site/debug')));
 
@@ -11,37 +12,17 @@ module.exports = function (app) {
     app.use(route.get('/api/tag', require('../controllers/article/tag')));
 
     // 后台接口
-    
+    app.use(route.get('/manage/article', require('../controllers/article/multi')));
+    app.use(route.get('/manage/article/:id', require('../controllers/article/read')));
+    app.use(route.post('/manage/article', require('../controllers/article/create')));
+    app.use(route.put('/manage/article/:id', require('../controllers/article/update')));
+    app.use(route.del('/manage/article/:id', require('../controllers/article/remove')));
+    app.use(route.get('/manage/tag', require('../controllers/tag/multi')));
+    app.use(route.get('/manage/pic', require('../controllers/pic/multi')));
+    app.use(route.post('/manage/pic', require('../controllers/pic/create')));
 
     // // 根据标签获取文章列表
     // app.get('/article/getArticleByTag', article.getArticleByTag);
-
-    // // 后台路由过滤
-    // app.all('/manage/*', manage.userAuth);
-
-    // // 文章列表
-    // app.get('/manage/getArticles', article.getArticles);
-
-    // // 文章详情
-    // app.get('/manage/getArticleById', article.getArticleById);
-
-    // // 文章编辑
-    // app.post('/manage/articleEdit', article.edit);
-
-    // // 文章添加
-    // app.post('/manage/articleAdd', article.add);
-
-    // // 文章删除
-    // app.post('/manage/articleDel', article.del);
-
-    // // 标签列表
-    // app.get('/manage/getTags', tag.getTags);
-
-    // // 图片列表
-    // app.get('/manage/getPictures', pic.getPictures);
-
-    // // 图片添加
-    // app.post('/manage/pictureAdd', pic.add);
 
     // // 账户信息
     // app.get('/loginMsg', manage.loginMsg);

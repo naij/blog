@@ -68,7 +68,7 @@ KISSY.add("app/views/manage/article/list", function (S, View, MM, VOM, Router, N
             var viewOptions = {
                 confirmFn: function(){
                     me.manage(MM.fetchAll([{
-                        name: "article_del",
+                        name: "manage_article_del",
                         postParams: {
                             id: e.params.id
                         }

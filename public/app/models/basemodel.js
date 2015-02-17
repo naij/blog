@@ -178,6 +178,7 @@ KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
             var async = options.async;
             var dataType = options.dataType || 'json';
             var noVerify = options.noVerify;
+            var restfulType = options.restfulType;
 
             // GET请求加上时间戳防止缓存
             if (type.toUpperCase() === 'GET') {
@@ -194,7 +195,8 @@ KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
 
             var params = {
                 url: url,
-                type: type,
+                // 如果有 put 或者 delete 类型就优先使用
+                type: restfulType || type,
                 data: data,
                 dataType: dataType,
                 async: async === false ? false : true,

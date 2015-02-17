@@ -18,6 +18,11 @@ var app     = koa();
 app.keys = ['naij'];
 app.use(session(app));
 
+jsonp(app, {
+    callback: '_callback',
+    limit: 50
+});
+
 app.use(views('app/views', {
     default: 'jade'
 }));
@@ -48,11 +53,6 @@ app.use(body({
         keepExtensions: true
     }
 }));
-
-jsonp(app, {
-    callback: '_callback',
-    limit: 50
-});
 
 routes(app);
 

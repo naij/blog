@@ -34,7 +34,7 @@ KISSY.add("app/views/manage/article/add", function (S, View, MM, VOM, Router, No
             var formData = S.unparam( S.IO.serialize('#addForm'));
 
             me.manage(MM.fetchAll([{
-                name: "article_add",
+                name: "manage_article_add",
                 postParams: formData
             }], function (errs, MesModel) {
                 me.navigate('/manage/article/list');

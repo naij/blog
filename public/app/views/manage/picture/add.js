@@ -79,7 +79,7 @@ KISSY.add("app/views/manage/picture/add", function (S, View, MM, VOM, Router, No
                     // 取消，此功能没有做
                     xhr.addEventListener("abort", uploadCanceled, false);
                     // 上传
-                    xhr.open("POST", "/manage/pictureAdd");
+                    xhr.open("POST", "/manage/pic");
                     // 发送
                     xhr.send(fd);
                 }

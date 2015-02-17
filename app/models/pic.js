@@ -3,7 +3,7 @@ var thunkify = require('thunkify');
 var Schema = require('../schema/pic');
 var Model;
 
-Model = mongoose.model('Pic', Schema);
+Model = mongoose.model('Pic', Schema, 'pic');
 
 
 
