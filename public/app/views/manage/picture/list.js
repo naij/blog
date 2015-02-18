@@ -27,15 +27,15 @@ KISSY.add("app/views/manage/picture/list", function (S, View, MM, VOM, Router, N
                 startTime = Util.dateRecent(-6);
                 endTime = Util.dateRecent(0);
             }
-
+            
             me.manage('startTime', startTime);
             me.manage('endTime', endTime);
 
             me.manage(MM.fetchAll([{
                 name: "manage_picture_list",
                 urlParams: {
-                    startTime: startTime,
-                    endTime: endTime
+                    startTime: Util.dateFormat(startTime),
+                    endTime: Util.dateFormat(endTime)
                 }
             }], function (errs, MesModel) {
                 var data = MesModel.get('data');
