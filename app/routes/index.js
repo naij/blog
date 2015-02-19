@@ -7,6 +7,7 @@ module.exports = function (app) {
 
     // 前台接口
     app.use(route.get('/api/article', require('../controllers/article/multi')));
+    app.use(route.get('/api/article/:tag', require('../controllers/article/readbytag')));
     app.use(route.get('/api/article/:id', require('../controllers/article/read')));
     app.use(route.get('/api/archive', require('../controllers/article/archive')));
     app.use(route.get('/api/tag', require('../controllers/article/tag')));
@@ -22,12 +23,4 @@ module.exports = function (app) {
     app.use(route.get('/manage/tag', require('../controllers/tag/multi')));
     app.use(route.get('/manage/pic', require('../controllers/pic/multi')));
     app.use(route.post('/manage/pic', require('../controllers/pic/create')));
-
-    // // 根据标签获取文章列表
-    // app.get('/article/getArticleByTag', article.getArticleByTag);
-
-    // // 404
-    // app.use(function (req, res) {
-    //     res.render("404");
-    // });
 }

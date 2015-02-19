@@ -1,4 +1,4 @@
-(function (S) {
+(function () {
     function returnJSON (s) {
         return (new Function('return ' + s))();
     }
@@ -27,4 +27,4 @@
     });
 
     window.UserInfo = {};
-}(KISSY));
+}());
