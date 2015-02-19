@@ -10,6 +10,8 @@ module.exports = function (app) {
     app.use(route.get('/api/article/:id', require('../controllers/article/read')));
     app.use(route.get('/api/archive', require('../controllers/article/archive')));
     app.use(route.get('/api/tag', require('../controllers/article/tag')));
+    app.use(route.post('/api/login', require('../controllers/member/login')));
+    app.use(route.get('/api/logout', require('../controllers/member/logout')));
 
     // 后台接口
     app.use(route.get('/manage/article', require('../controllers/article/multi')));
@@ -23,15 +25,6 @@ module.exports = function (app) {
 
     // // 根据标签获取文章列表
     // app.get('/article/getArticleByTag', article.getArticleByTag);
-
-    // // 账户信息
-    // app.get('/loginMsg', manage.loginMsg);
-
-    // // 登录
-    // app.post('/login', manage.login);
-
-    // // 登出
-    // app.get('/logout', manage.logout);
 
     // // 404
     // app.use(function (req, res) {

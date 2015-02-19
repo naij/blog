@@ -30,10 +30,10 @@ module.exports = function *() {
     // 上传到upyun
     var upyunInfo = yield thunkify(upload)('/c/' + picName, file);
 
-    // // 获取图片尺寸
+    // 获取图片尺寸
     var size = images(picPath).size();
 
-    // // 保存到数据库
+    // 保存到数据库
     var pic = yield Pic.create({
         picPath: '/c/' + picName,
         picSize: size.width + 'x' + size.height

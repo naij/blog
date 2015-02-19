@@ -202,12 +202,6 @@ KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
                 async: async === false ? false : true,
                 success: function (resp, msg, xhr) {
                     if (dataType == 'json') {
-                        // 后台页面会有这个判断
-                        if(resp.data.hasOwnProperty('hasLogin') && resp.data.hasLogin === false) {
-                            window.location.href = '/#!/manage/login';
-                            return;
-                        }
-
                         // 在modelmanager里面配置
                         // 用来直接返回结果
                         if(noVerify){
@@ -233,7 +227,9 @@ KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
                 },
                 error: function (x, msg, xhr) {
                     //没权限跳回登录页
-                    callback( msg || 'request error');
+                    if(xhr.status == 403) {
+                        window.location.href = '#!/manage/login';
+                    }
                 }
             };
 

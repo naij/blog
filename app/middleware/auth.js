@@ -8,11 +8,11 @@ var Util   = require('../../lib/util');
 var User   = require('../models/user');
 
 module.exports = function *(next) {
-    var cookie = this.cookies[config.cookieName];
+    var cookie = this.cookies.get(config.cookieName);
 
-    if (cookie) {
+    if (cookie && !this.session.user) {
         var authToken = Util.decrypt(cookie, config.sessionSecret);
-        var userId = authToken.split('\t')[0];
+        var userId = authToken.split('|')[0];
         var user = yield User.findOne({_id: userId}).exec();
 
         if (user) {
@@ -21,11 +21,11 @@ module.exports = function *(next) {
     }
 
     // 过滤 manage 路由下的所有接口
-    // if (/^\/manage\/.+$/.test(this.request.path)) {
-    //     if (!this.session || !this.session.user) {
-    //         throw FError.NotAuthorizedError();
-    //     }
-    // }
+    if (/^\/manage\/.+$/.test(this.request.path)) {
+        if (!this.session.user) {
+            throw FError.NotAuthorizedError();
+        }
+    }
 
     yield next;
 }
