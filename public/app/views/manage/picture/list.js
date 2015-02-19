@@ -102,5 +102,13 @@ KISSY.add("app/views/manage/picture/list", function (S, View, MM, VOM, Router, N
         }
     });
 },{
-    requires:["mxext/view", 'app/models/modelmanager', 'magix/vom', 'magix/router', 'node', 'app/util/util', 'brix/gallery/calendar/index']
+    requires:[
+        'mxext/view',
+        'app/models/modelmanager',
+        'magix/vom',
+        'magix/router',
+        'node',
+        'app/util/util',
+        'brix/gallery/calendar/index'
+    ]
 });

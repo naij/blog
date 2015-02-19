@@ -71,5 +71,12 @@ KISSY.add("app/views/default", function (S, View, VOM, UA, Node, R, Util) {
         }
     });
 }, {
-    requires: ['mxext/view', 'magix/vom', 'ua', 'node', 'magix/router', 'app/util/util']
+    requires: [
+        'mxext/view',
+        'magix/vom',
+        'ua',
+        'node',
+        'magix/router',
+        'app/util/util'
+    ]
 });

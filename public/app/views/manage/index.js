@@ -12,5 +12,12 @@ KISSY.add("app/views/manage/index", function (S, View, MM, VOM, Router, Node, Ut
         }
     });
 },{
-    requires:["mxext/view", 'app/models/modelmanager', 'magix/vom', 'magix/router', 'node', 'app/util/util']
+    requires:[
+        'mxext/view',
+        'app/models/modelmanager',
+        'magix/vom',
+        'magix/router',
+        'node',
+        'app/util/util'
+    ]
 });

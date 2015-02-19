@@ -40,5 +40,9 @@ KISSY.add("app/views/header", function (S, View, Node, MM) {
         }
     });
 }, {
-    requires: ["mxext/view",'node', "app/models/modelmanager"]
+    requires: [
+        'mxext/view',
+        'node', 
+        'app/models/modelmanager'
+    ]
 });

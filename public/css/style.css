@@ -38,14 +38,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 @font-face {
-  font-family: "iconfont-kiwi";
+  font-family: "iconfont-blog";
   font-weight: normal;
   font-style: normal;
-  src: url("http://at.alicdn.com/t/font_1409824422_3499794.eot");
-  src: url("http://at.alicdn.com/t/font_1409824422_3499794.eot?#iefix") format("embedded-opentype"), url("http://at.alicdn.com/t/font_1409824422_3499794.woff") format("woff"), url("http://at.alicdn.com/t/font_1409824422_3499794.ttf") format("truetype"), url("http://at.alicdn.com/t/font_1409824422_3499794.svg#iconfont") format("svg");
+  src: url("http://at.alicdn.com/t/font_1424352600_672588.eot");
+  src: url("http://at.alicdn.com/t/font_1424352600_672588.eot?#iefix") format("embedded-opentype"), url("http://at.alicdn.com/t/font_1424352600_672588.woff") format("woff"), url("http://at.alicdn.com/t/font_1424352600_672588.ttf") format("truetype"), url("http://at.alicdn.com/t/font_1424352600_672588.svg#iconfont") format("svg");
 }
-.iconfont-kiwi {
-  font-family: "iconfont-kiwi";
+.iconfont-blog {
+  font-family: "iconfont-blog";
   font-size: 16px;
   font-style: normal;
   font-weight: normal;
@@ -727,6 +727,16 @@ body {
 }
 .manage-guide li a:hover {
   background-color: #f6f6f6;
+}
+.manage-tool li {
+  float: left;
+  height: 200px;
+  width: 194px;
+  text-align: center;
+  margin-right: 15px;
+}
+.manage-tool li .tool-logo i {
+  font-size: 96px;
 }
 @media screen and (max-width: 760px) {
   .manage-guide li {

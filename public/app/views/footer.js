@@ -5,5 +5,7 @@ KISSY.add("app/views/footer", function (S, View) {
         }
     });
 },{
-    requires:["mxext/view"]
+    requires:[
+        'mxext/view'
+    ]
 });

@@ -20,5 +20,12 @@ KISSY.add("app/views/pages/archive/archive", function (S, View, MM, VOM, Router,
         }
     });
 },{
-    requires:['mxext/view', 'app/models/modelmanager', 'magix/vom', 'magix/router', 'node', 'app/util/util']
+    requires:[
+        'mxext/view',
+        'app/models/modelmanager',
+        'magix/vom',
+        'magix/router',
+        'node',
+        'app/util/util'
+    ]
 });

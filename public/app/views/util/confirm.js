@@ -26,5 +26,8 @@ KISSY.add("app/views/util/confirm", function (S, View, MM) {
         }
     });
 }, {
-    requires: ['mxext/view', 'app/models/modelmanager']
+    requires: [
+        'mxext/view',
+        'app/models/modelmanager'
+    ]
 });

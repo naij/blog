@@ -1,4 +1,4 @@
-KISSY.add("app/views/pages/about/about", function (S, View, MM, VOM, Router, Node, Util) {
+KISSY.add("app/views/manage/tool/list", function (S, View, MM, VOM, Router, Node, Util) {
     var $ = Node.all;
 
     return View.extend({
@@ -7,7 +7,7 @@ KISSY.add("app/views/pages/about/about", function (S, View, MM, VOM, Router, Nod
         },
         render: function () {
             var me = this;
-
+            
             me.setViewPagelet();
         }
     });

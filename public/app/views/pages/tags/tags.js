@@ -45,5 +45,12 @@ KISSY.add("app/views/pages/tags/tags", function (S, View, MM, VOM, Router, Node,
         }
     });
 },{
-    requires:['mxext/view', 'app/models/modelmanager', 'magix/vom', 'magix/router', 'node', 'app/util/util']
+    requires:[
+        'mxext/view',
+        'app/models/modelmanager',
+        'magix/vom',
+        'magix/router',
+        'node',
+        'app/util/util'
+    ]
 });

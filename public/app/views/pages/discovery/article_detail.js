@@ -27,5 +27,12 @@ KISSY.add("app/views/pages/discovery/article_detail", function (S, View, MM, VOM
         }
     });
 },{
-    requires:['mxext/view', 'app/models/modelmanager', 'magix/vom', 'magix/router', 'node', 'app/util/util']
+    requires:[
+        'mxext/view',
+        'app/models/modelmanager',
+        'magix/vom',
+        'magix/router',
+        'node',
+        'app/util/util'
+    ]
 });

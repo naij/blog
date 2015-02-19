@@ -28,5 +28,12 @@ KISSY.add("app/views/pages/life/article_list", function (S, View, MM, VOM, Route
         }
     });
 },{
-    requires:['mxext/view', 'app/models/modelmanager', 'magix/vom', 'magix/router', 'node', 'app/util/util']
+    requires:[
+        'mxext/view',
+        'app/models/modelmanager',
+        'magix/vom',
+        'magix/router',
+        'node',
+        'app/util/util'
+    ]
 });

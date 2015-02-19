@@ -21,7 +21,9 @@ KISSY.add("app/ini", function (S) {
                 '/manage/article/list',
                 '/manage/article/add',
                 '/manage/article/edit',
-                '/manage/picture/list'
+                '/manage/picture/list',
+                '/manage/tool/list',
+                '/manage/tool/qr'
             ]
         }
     };

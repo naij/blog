@@ -89,6 +89,11 @@ KISSY.add("app/models/modelmanager", function (S, BaseManager, BaseModel) {
         {
             name: 'manage_picture_list',
             url: '/manage/pic'
+        },
+        // 二维码
+        {
+            name: 'manage_tool_qr',
+            url: '/manage/tool/qr'
         }
     ]);
     return Manager;

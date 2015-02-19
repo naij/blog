@@ -10,7 +10,7 @@
         "koa": "0.13.0",
         "koa-body": "1.0.0",
         "koa-favicon": "1.2.0",
-        "koa-logs-full": "0.0.7",
+        "koa-logs-full": "0.0.8",
         "koa-route": "2.4.0",
         "koa-safe-jsonp": "0.3.0",
         "koa-session": "3.1.0",
@@ -32,7 +32,8 @@
         "request": "2.53.0",
         "lodash": "3.2.0",
         "config": "1.1.0",
-        "upyun": "0.0.3"
+        "upyun": "0.0.3",
+        "qr-image": "3.1.0"
     },
     "devDependencies": {
         "gulp": "3.8.11",

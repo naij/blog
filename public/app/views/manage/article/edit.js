@@ -46,5 +46,12 @@ KISSY.add("app/views/manage/article/edit", function (S, View, MM, VOM, Router, N
         }
     });
 },{
-    requires:["mxext/view", 'app/models/modelmanager', 'magix/vom', 'magix/router', 'node', 'app/util/util']
+    requires:[
+        'mxext/view',
+        'app/models/modelmanager',
+        'magix/vom',
+        'magix/router',
+        'node',
+        'app/util/util'
+    ]
 });
