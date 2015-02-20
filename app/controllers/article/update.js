@@ -11,7 +11,8 @@ module.exports = function *(id) {
     var article = yield Article.findOneAndUpdate({_id: id}, {
         title: body.title,
         content: html,
-        markdown: md.replace(/&/g, "&amp;")
+        markdown: md.replace(/&/g, "&amp;"),
+        draft: body.draft
     }).exec();
 
     this.body = {

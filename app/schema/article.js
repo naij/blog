@@ -8,5 +8,6 @@ module.exports = new Schema({
     content: { type: String },
     markdown: { type: String },
     update: { type: Date, default: Date.now },
+    draft: { type: Boolean, default: false },
     pv: { type: Number, default: 0 }
 });

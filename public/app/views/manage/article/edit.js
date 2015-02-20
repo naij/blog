@@ -43,6 +43,21 @@ KISSY.add("app/views/manage/article/edit", function (S, View, MM, VOM, Router, N
             }], function (errs, MesModel) {
                 me.navigate('/manage/article/list');
             }));
+        },
+        'draft<click>': function (e) {
+            e.halt();
+            var me = this;
+            var editor = me.getManaged('editor');
+            editor.codemirror.save();
+            var formData = S.unparam( S.IO.serialize('#editForm'));
+            formData.draft = true;
+
+            me.manage(MM.fetchAll([{
+                name: "manage_article_edit",
+                postParams: formData
+            }], function (errs, MesModel) {
+                me.navigate('/manage/article/list');
+            }));
         }
     });
 },{
