@@ -1,9 +1,12 @@
 var qr = require('qr-image');
 
 module.exports = function *() {
-    var svg_string = qr.imageSync('http://www.taobao.com', { 
+    var body = this.request.body;
+    var text = body.text;
+
+    var svg_string = qr.imageSync(text, { 
         type: 'svg',
-        size: 5
+        size: 11
     });
 
     this.body = {

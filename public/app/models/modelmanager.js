@@ -93,7 +93,10 @@ KISSY.add("app/models/modelmanager", function (S, BaseManager, BaseModel) {
         // 二维码
         {
             name: 'manage_tool_qr',
-            url: '/manage/tool/qr'
+            url: '/manage/tool/qr',
+            options: {
+                type: 'post'
+            }
         }
     ]);
     return Manager;

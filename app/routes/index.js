@@ -23,5 +23,5 @@ module.exports = function (app) {
     app.use(route.get('/manage/tag', require('../controllers/tag/multi')));
     app.use(route.get('/manage/pic', require('../controllers/pic/multi')));
     app.use(route.post('/manage/pic', require('../controllers/pic/create')));
-    app.use(route.get('/manage/tool/qr', require('../controllers/tool/qr')));
+    app.use(route.post('/manage/tool/qr', require('../controllers/tool/qr')));
 }

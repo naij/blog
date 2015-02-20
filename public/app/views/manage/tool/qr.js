@@ -8,16 +8,23 @@ KISSY.add("app/views/manage/tool/qr", function (S, View, MM, VOM, Router, Node, 
         render: function () {
             var me = this;
 
+            me.setViewPagelet();
+        },
+        'create<click>': function (e) {
+            e.halt();
+            var me = this;
+            var pagelet = me.getManaged('pagelet');
+            var text = $('#J_qr_text').val();
+
             me.manage(MM.fetchAll([{
-                name: "manage_tool_qr"
+                name: "manage_tool_qr",
+                postParams: {
+                    text: text
+                }
             }], function (errs, MesModel) {
                 var data = MesModel.get('data');
 
-                me.setViewPagelet({
-                    qr: data.qr
-                }, function () {
-                    // me.components();
-                });
+                pagelet.setChunkData({qr: data.qr});
             }));
         }
     });

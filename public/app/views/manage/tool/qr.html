@@ -1,1 +1,13 @@
-{{{qr}}}
+<div class="manage-tool-qr">
+    <div class="col1">
+        <textarea id="J_qr_text" class="textarea"></textarea>
+        <p class="create-btn">
+            <a href="#" class="btn btn-large btn-primary" mx-click="create">生成二维码</a>
+        </p>
+    </div>
+    <div class="col2">
+        <div class="qr-cnt" bx-tmpl="qr" bx-datakey="qr">
+            {{{qr}}}
+        </div>
+    </div>
+</div>
