@@ -14,7 +14,7 @@ KISSY.add("app/models/modelmanager", function (S, BaseManager, BaseModel) {
         // 根据标签获取文章列表
         {
             name: 'article_list_by_tag',
-            url: '/api/article/{tag}'
+            url: '/api/article/tag/{tag}'
         },
         // 归档
         {

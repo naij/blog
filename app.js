@@ -10,10 +10,14 @@ var path    = require('path');
 var config  = require('config');
 var routes  = require('./app/routes/');
 var models  = require('./app/models/');
-var error   = require('./app/middleware/error');
 var auth    = require('./app/middleware/auth');
+var error   = require('./app/middleware/error');
+var logger  = require('./app/middleware/logger');
 var app     = koa();
 
+// app.use(logger(app, {
+    
+// }));
 
 app.keys = ['naij'];
 app.use(session(app));
@@ -34,11 +38,11 @@ app.use(function *(next) {
 
 app.use(error);
 
-// app.use(record(app, {
-//     logdir: path.join(__dirname, 'logs'),
-//     showError: true,
-//     exportGlobalLogger: true
-// }));
+app.use(record(app, {
+    logdir: path.join(__dirname, 'logs'),
+    showError: true,
+    exportGlobalLogger: true
+}));
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 

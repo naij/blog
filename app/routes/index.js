@@ -7,7 +7,7 @@ module.exports = function (app) {
 
     // 前台接口
     app.use(route.get('/api/article', require('../controllers/article/multi')));
-    app.use(route.get('/api/article/:tag', require('../controllers/article/readbytag')));
+    app.use(route.get('/api/article/tag/:tag', require('../controllers/article/readbytag')));
     app.use(route.get('/api/article/:id', require('../controllers/article/read')));
     app.use(route.get('/api/archive', require('../controllers/article/archive')));
     app.use(route.get('/api/tag', require('../controllers/article/tag')));
