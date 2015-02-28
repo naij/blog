@@ -1,11 +1,12 @@
-var gulp = require('gulp');
-var path = require('path');
-var less = require('gulp-less');
-var rename = require('gulp-rename');
-var uglify = require('gulp-uglify');
+var gulp      = require('gulp');
+var path      = require('path');
+var less      = require('gulp-less');
+var rename    = require('gulp-rename');
+var uglify    = require('gulp-uglify');
 var minifyCSS = require('gulp-csso');
-var clean = require('gulp-clean');
-var combine = require('./tasks/combine');
+var clean     = require('gulp-clean');
+var nodemon   = require('gulp-nodemon')
+var combine   = require('./tasks/combine');
 
 gulp.task('less', function() {
     return gulp.src('./public/less/style.less')
@@ -68,6 +69,29 @@ gulp.task('compress', ['clean', 'less'], function() {
 gulp.task('watch', [
     'less',
     'watch_less'
+]);
+
+gulp.task('nodemon', function() {
+    nodemon({
+        script: 'app.js',
+        ext: 'js html',
+        ignore: [
+            '.gitignore', 
+            'readme.md', 
+            'gulpfile.js', 
+            'package.json', 
+            'public/*',
+            'tasks/*'
+        ],
+        execMap: {
+            "js": "node --harmony"
+        }
+    })
+});
+
+gulp.task('server', [
+    'watch',
+    'nodemon'
 ]);
 
 gulp.task('build', [
