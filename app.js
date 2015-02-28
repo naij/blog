@@ -42,12 +42,6 @@ app.use(function *(next) {
     yield next;
 });
 
-// app.use(record(app, {
-//     logdir: path.join(__dirname, 'logs'),
-//     showError: true,
-//     exportGlobalLogger: true
-// }));
-
 app.use(favicon(__dirname + '/public/favicon.ico'));
 
 app.use(serve('./public'));
