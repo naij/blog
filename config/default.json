@@ -8,6 +8,12 @@
     // 端口号
     "port": 3000,
 
+    // 是否前端有放代理服务器
+    "proxy": false,
+
+    // 日志级别
+    "logLevel": "DEBUG",
+
     // cookie && session
     "cookieName": "naij",
     "sessionSecret": "naij",

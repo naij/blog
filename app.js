@@ -15,9 +15,15 @@ var error   = require('./app/middleware/error');
 var logger  = require('./app/middleware/logger');
 var app     = koa();
 
-// app.use(logger(app, {
-    
-// }));
+app.use(error);
+
+app.use(logger(app, {
+    level: config.logLevel,
+    dir: './logs'
+}));
+
+// 是否前端有放代理服务器（nginx）
+app.proxy = config.proxy;
 
 app.keys = ['naij'];
 app.use(session(app));
@@ -36,13 +42,11 @@ app.use(function *(next) {
     yield next;
 });
 
-app.use(error);
-
-app.use(record(app, {
-    logdir: path.join(__dirname, 'logs'),
-    showError: true,
-    exportGlobalLogger: true
-}));
+// app.use(record(app, {
+//     logdir: path.join(__dirname, 'logs'),
+//     showError: true,
+//     exportGlobalLogger: true
+// }));
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 
