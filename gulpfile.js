@@ -6,7 +6,7 @@ var uglify    = require('gulp-uglify');
 var minifyCSS = require('gulp-csso');
 var clean     = require('gulp-clean');
 var nodemon   = require('gulp-nodemon')
-var combine   = require('./tasks/combine');
+var combine   = require('gulp-magix-combine');
 
 gulp.task('less', function() {
     return gulp.src('./public/less/style.less')
@@ -25,7 +25,9 @@ gulp.task('clean', function() {
 
 gulp.task('compress', ['clean', 'less'], function() {
     gulp.src('./public/app/views/**/*.js')
-        .pipe(combine)
+        .pipe(combine({
+            magixVersion: 2.0
+        }))
         .pipe(rename(function (path) {
             path.basename += "-min";
         }))
