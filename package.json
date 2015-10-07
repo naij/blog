@@ -24,7 +24,7 @@
         "mongoose-deep-populate": "0.0.7",
         "mongoose-eventify": ">=0.0.1",
         "mongoose-lifecycle": "1.0.0",
-        "mongoose-softdelete": "0.2.5",
+        "mongoose-softdelete": "0.6.2",
         "validator": "3.18.0",
         "markdown-js": "0.0.3",
         "images": "2.1.1",
