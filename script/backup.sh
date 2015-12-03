@@ -13,43 +13,43 @@ usage: $0 options
 This script dumps the current mongo database, tars it, then sends it to an upyun bucket.
 
 OPTIONS:
-   -h      Show this message
-   -u      Mongodb username
-   -p      Mongodb password
-   -y      upyun username
-   -z      upyun password
+   -h    Show this message
+   -u    Mongodb username
+   -p    Mongodb password
+   -y    upyun username
+   -z    upyun password
 EOF
 }
 
 while getopts “h:u:p:y:z:” OPTION
 do
-    case $OPTION in
-        h)
-            usage
-            exit 1
-            ;;
-        u)
-            MONGODB_USERNAME=$OPTARG
-            ;;
-        p)
-            MONGODB_PASSWORD=$OPTARG
-            ;;
-        y)
-            UPYUN_USERNAME=$OPTARG
-            ;;
-        z)
-            UPYUN_PASSWORD=$OPTARG
-            ;;
-        ?)
-            usage
-            exit
-        ;;
-    esac
+  case $OPTION in
+    h)
+      usage
+      exit 1
+      ;;
+    u)
+      MONGODB_USERNAME=$OPTARG
+      ;;
+    p)
+      MONGODB_PASSWORD=$OPTARG
+      ;;
+    y)
+      UPYUN_USERNAME=$OPTARG
+      ;;
+    z)
+      UPYUN_PASSWORD=$OPTARG
+      ;;
+    ?)
+      usage
+      exit
+    ;;
+  esac
 done
 
 if [ -z $MONGODB_USERNAME ] || [ -z $MONGODB_PASSWORD ] || [ -z $UPYUN_USERNAME ] || [ -z $UPYUN_PASSWORD ]; then
-    usage
-    exit 1
+  usage
+  exit 1
 fi
 
 # Get the directory the script is being run from

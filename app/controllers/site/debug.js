@@ -1,3 +1,3 @@
 module.exports = function *(next) {
-    yield this.render('debug');
+  yield this.render('debug');
 }

@@ -14,15 +14,15 @@ KISSY.add('components/tip/1.0/index',function(S, Node, Promise, Brick){
 	Tip.ATTRS = {
 		defaultConfig: {
 			value: {
-				status: 'ok',      //现在支持的状态有"ok,error,stop,tips,alert,attention"
-				msg: '',           //提示文字
+				status: 'ok',    //现在支持的状态有"ok,error,stop,tips,alert,attention"
+				msg: '',       //提示文字
 				autoHide: false,   //是否自动隐藏
-				close: true,       //是否需要关闭按钮
-				border: true,      //是否需要边框
+				close: true,     //是否需要关闭按钮
+				border: true,    //是否需要边框
 				background: true,  //是否需要背景
-				icon: true,        //是否需要ICON
-				anim: true,        //是否动画
-				delay: 3000        //延时显示时间（毫秒）
+				icon: true,    //是否需要ICON
+				anim: true,    //是否动画
+				delay: 3000    //延时显示时间（毫秒）
 			},
 			getter: function(v){
 				return v
@@ -160,7 +160,7 @@ KISSY.add('components/tip/1.0/index',function(S, Node, Promise, Brick){
 
 		_destructor: function () {
 			this.box.html('')
-    }
+  }
 
 	})
 

@@ -1,18 +1,18 @@
 KISSY.add("app/util/util", function (S, Format, Dialog, Tooltip, Calendar) {
-    var exports = {};
+  var exports = {};
 
-    S.mix(exports, Format);
-    S.mix(exports, Dialog);
-    S.mix(exports, Tooltip);
-    S.mix(exports, Calendar);
+  S.mix(exports, Format);
+  S.mix(exports, Dialog);
+  S.mix(exports, Tooltip);
+  S.mix(exports, Calendar);
 
-    return exports;
+  return exports;
 
 }, {
-    requires: [
-    	'./format/format',
-    	'./dialog/dialog',
-    	'./tooltip/tooltip',
-        './calendar/calendar'
-    ]
+  requires: [
+  	'./format/format',
+  	'./dialog/dialog',
+  	'./tooltip/tooltip',
+    './calendar/calendar'
+  ]
 });

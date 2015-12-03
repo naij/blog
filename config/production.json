@@ -1,24 +1,24 @@
 {
-    "debug": false,
-    "version": "0.1",
+  "debug": false,
+  "version": "0.1",
 
-    // 静态资源
-    "staticCDN": "/build",
+  // 静态资源
+  "staticCDN": "/build",
 
-    // 端口号
-    "port": 3000,
+  // 端口号
+  "port": 3000,
 
-    // 是否前端有放代理服务器
-    "proxy": true,
+  // 是否前端有放代理服务器
+  "proxy": true,
 
-    // 日志级别
-    "logLevel": "INFO",
+  // 日志级别
+  "logLevel": "INFO",
 
-    // cookie && session
-    "cookieName": "naij",
-    "sessionSecret": "naij",
+  // cookie && session
+  "cookieName": "naij",
+  "sessionSecret": "naij",
 
-    // 又拍云账户
-    "upyunBuckname": "kiwipics",
-    "upyunPath": "http://kiwipics.b0.upaiyun.com"
+  // 又拍云账户
+  "upyunBuckname": "kiwipics",
+  "upyunPath": "http://kiwipics.b0.upaiyun.com"
 }

@@ -104,16 +104,16 @@ Log.prototype = {
    */
 
   log: function (levelStr, args) {
-    if (exports[levelStr] <= this.level) {
-      var msg = util.format(args);
-      this.stream.write(
-          '[' + new Date + ']'
-        + ' <' + levelStr + '>'
-        + '\n'
-        + msg
-        + '\n\n'
-      );
-    }
+  if (exports[levelStr] <= this.level) {
+    var msg = util.format(args);
+    this.stream.write(
+      '[' + new Date + ']'
+    + ' <' + levelStr + '>'
+    + '\n'
+    + msg
+    + '\n\n'
+    );
+  }
   },
 
   /**
@@ -124,7 +124,7 @@ Log.prototype = {
    */
 
   emergency: function (msg) {
-    this.log('EMERGENCY', arguments);
+  this.log('EMERGENCY', arguments);
   },
 
   /**
@@ -135,7 +135,7 @@ Log.prototype = {
    */
 
   alert: function (msg) {
-    this.log('ALERT', arguments);
+  this.log('ALERT', arguments);
   },
 
   /**
@@ -146,7 +146,7 @@ Log.prototype = {
    */
 
   critical: function (msg) {
-    this.log('CRITICAL', arguments);
+  this.log('CRITICAL', arguments);
   },
 
   /**
@@ -157,7 +157,7 @@ Log.prototype = {
    */
 
   error: function (msg) {
-    this.log('ERROR', arguments);
+  this.log('ERROR', arguments);
   },
 
   /**
@@ -168,7 +168,7 @@ Log.prototype = {
    */
 
   warning: function (msg) {
-    this.log('WARNING', arguments);
+  this.log('WARNING', arguments);
   },
 
   /**
@@ -179,7 +179,7 @@ Log.prototype = {
    */
 
   notice: function (msg) {
-    this.log('NOTICE', arguments);
+  this.log('NOTICE', arguments);
   },
 
   /**
@@ -190,7 +190,7 @@ Log.prototype = {
    */
 
   info: function (msg) {
-    this.log('INFO', arguments);
+  this.log('INFO', arguments);
   },
 
   /**
@@ -201,6 +201,6 @@ Log.prototype = {
    */
 
   debug: function (msg) {
-    this.log('DEBUG', arguments);
+  this.log('DEBUG', arguments);
   }
 };

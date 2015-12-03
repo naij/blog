@@ -153,22 +153,22 @@ body {
   0%,
   80%,
   100% {
-    -webkit-transform: scale(0);
+  -webkit-transform: scale(0);
   }
   40% {
-    -webkit-transform: scale(1);
+  -webkit-transform: scale(1);
   }
 }
 @keyframes bouncedelay {
   0%,
   80%,
   100% {
-    transform: scale(0);
-    -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transform: scale(0);
   }
   40% {
-    transform: scale(1);
-    -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transform: scale(1);
   }
 }
 /* table组件扩展 */
@@ -392,33 +392,33 @@ body {
 /* 自适应样式 */
 @media screen and (max-width: 760px) {
   .header {
-    position: static;
-    width: auto;
+  position: static;
+  width: auto;
   }
   .header title {
-    position: relative;
+  position: relative;
   }
   .header title a {
-    position: absolute;
-    top: 6px;
-    left: 0;
+  position: absolute;
+  top: 6px;
+  left: 0;
   }
   .header .site-nav {
-    width: auto;
+  width: auto;
   }
   .header .site-nav li {
-    float: left;
-    width: 33.33333333%;
+  float: left;
+  width: 33.33333333%;
   }
   .content {
-    margin-left: 0px;
-    padding: 10px;
+  margin-left: 0px;
+  padding: 10px;
   }
   .footer {
-    margin-left: 0;
+  margin-left: 0;
   }
   .footer .copyright {
-    margin: 0 10px;
+  margin: 0 10px;
   }
 }
 /**
@@ -613,7 +613,7 @@ body {
 }
 @media screen and (max-width: 760px) {
   .about dd {
-    margin: 15px 0 15px 0;
+  margin: 15px 0 15px 0;
   }
 }
 /**
@@ -767,14 +767,14 @@ body {
 }
 @media screen and (max-width: 760px) {
   .manage-guide li {
-    width: 45%;
-    margin-right: 10%;
-    margin-bottom: 15px;
+  width: 45%;
+  margin-right: 10%;
+  margin-bottom: 15px;
   }
   .manage-guide li a {
-    width: 100%;
+  width: 100%;
   }
   .manage-guide li:last-child {
-    margin-right: 0;
+  margin-right: 0;
   }
 }

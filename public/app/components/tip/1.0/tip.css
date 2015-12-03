@@ -35,5 +35,5 @@
 .med-tip .msg{_vertical-align:baseline;_zoom:1}
 .med-tip-b{display:block;}
 .med-tip-b .ok, .med-tip-b .error, .med-tip-b .tips, .med-tip-b .stop, .med-tip-b .alert, .med-tip-b .attention {
-    float: none;
+  float: none;
 }
