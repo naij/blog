@@ -1,6 +1,6 @@
-var util  = require('../../../lib/util');
-var FError  = require('../../../lib/error');
-var Article = require('../../models/article');
+var util  = require('../../../lib/util')
+var FError  = require('../../../lib/error')
+var Article = require('../../models/article')
 
 module.exports = function *(id) {
   var tag = yield Article.aggregate({
@@ -16,7 +16,7 @@ module.exports = function *(id) {
       tag: "$_id",
       count: "$count"
     }
-  }).exec();
+  }).exec()
 
   this.body = {
     data: tag,

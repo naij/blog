@@ -1,27 +1,27 @@
-var gulp    = require('gulp');
-var path    = require('path');
-var less    = require('gulp-less');
-var rename  = require('gulp-rename');
-var uglify  = require('gulp-uglify');
-var minifyCSS = require('gulp-csso');
-var clean   = require('gulp-clean');
-var nodemon   = require('gulp-nodemon')
-var combine   = require('gulp-magix-combine');
+var gulp    = require('gulp')
+var path    = require('path')
+var less    = require('gulp-less')
+var rename  = require('gulp-rename')
+var uglify  = require('gulp-uglify')
+var cssmin  = require('gulp-cssmin')
+var clean   = require('gulp-clean')
+var nodemon = require('gulp-nodemon')
+var combine = require('gulp-magix-combine')
 
 gulp.task('less', function() {
   return gulp.src('./public/less/style.less')
     .pipe(less())
-    .pipe(gulp.dest('./public/css/'));
-});
+    .pipe(gulp.dest('./public/css/'))
+})
 
 gulp.task('watch_less', function() {
-  gulp.watch(['./public/less/*.less'], ['less']);
-});
+  gulp.watch(['./public/less/*.less'], ['less'])
+})
 
 gulp.task('clean', function() {
   return gulp.src('./public/build', {read: false})
-    .pipe(clean());
-});
+    .pipe(clean())
+})
 
 gulp.task('compress', ['clean', 'less'], function() {
   gulp.src('./public/app/views/**/*.js')
@@ -29,7 +29,7 @@ gulp.task('compress', ['clean', 'less'], function() {
       magixVersion: 2.0
     }))
     .pipe(rename(function (path) {
-      path.basename += "-min";
+      path.basename += "-min"
     }))
     .pipe(uglify({
       output:{ascii_only:true}
@@ -38,7 +38,7 @@ gulp.task('compress', ['clean', 'less'], function() {
 
   gulp.src('./public/boot/*.js')
     .pipe(rename(function (path) {
-      path.basename += "-min";
+      path.basename += "-min"
     }))
     .pipe(uglify({
       output:{ascii_only:true}
@@ -50,7 +50,7 @@ gulp.task('compress', ['clean', 'less'], function() {
     '!./public/app/views/**/*.js'
   ])
     .pipe(rename(function (path) {
-      path.basename += "-min";
+      path.basename += "-min"
     }))
     .pipe(uglify({
       output:{ascii_only:true}
@@ -59,19 +59,19 @@ gulp.task('compress', ['clean', 'less'], function() {
 
   gulp.src('./public/css/*.css')
     .pipe(rename(function (path) {
-      path.basename += "-min";
+      path.basename += "-min"
     }))
-    .pipe(minifyCSS())
-    .pipe(gulp.dest('./public/build/css/'));
+    .pipe(cssmin())
+    .pipe(gulp.dest('./public/build/css/'))
 
   gulp.src('./public/fonts/*')
-    .pipe(gulp.dest('./public/build/fonts/'));
-});
+    .pipe(gulp.dest('./public/build/fonts/'))
+})
 
 gulp.task('watch', [
   'less',
   'watch_less'
-]);
+])
 
 gulp.task('nodemon', function() {
   nodemon({
@@ -89,13 +89,13 @@ gulp.task('nodemon', function() {
       "js": "node --harmony"
     }
   })
-});
+})
 
 gulp.task('server', [
   'watch',
   'nodemon'
-]);
+])
 
 gulp.task('build', [
   'compress'
-]);
+])

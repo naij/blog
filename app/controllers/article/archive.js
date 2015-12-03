@@ -1,6 +1,6 @@
-var util  = require('../../../lib/util');
-var FError  = require('../../../lib/error');
-var Article = require('../../models/article');
+var util  = require('../../../lib/util')
+var FError  = require('../../../lib/error')
+var Article = require('../../models/article')
 
 module.exports = function *(id) {
   var article = yield Article.aggregate({
@@ -23,7 +23,7 @@ module.exports = function *(id) {
       time: "$_id",
       list: "$list"
     }
-  }).exec();
+  }).exec()
 
   this.body = {
     data: article,

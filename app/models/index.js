@@ -1,24 +1,24 @@
-var mongoose = require('mongoose');
-var config = require('config');
-var username = process.env.MONGO_USERNAME;
-var password = process.env.MONGO_PASSWORD;
-var exec = mongoose.Query.prototype.exec;
-var mongodb;
+var mongoose = require('mongoose')
+var config = require('config')
+var username = process.env.MONGO_USERNAME
+var password = process.env.MONGO_PASSWORD
+var exec = mongoose.Query.prototype.exec
+var mongodb
 
 if (username && password) {
-  mongodb = 'mongodb://' + username + ':' + password + '@' + '127.0.0.1:27017/kiwiobject';
+  mongodb = 'mongodb://' + username + ':' + password + '@' + '127.0.0.1:27017/kiwiobject'
 } else {
-  mongodb = 'mongodb://127.0.0.1:27017/kiwiobject';
+  mongodb = 'mongodb://127.0.0.1:27017/kiwiobject'
 }
 
-mongoose.connect(mongodb);
-mongoose.set("debug", config.debug);
+mongoose.connect(mongodb)
+mongoose.set("debug", config.debug)
 mongoose.connection.on('error', function() {
-  console.error('mongodb connection error!');
-});
+  console.error('mongodb connection error!')
+})
 mongoose.connection.once('open', function() {
-  console.log('mongodb connect successful!');
-});
+  console.log('mongodb connect successful!')
+})
 
 // 重写Query的exec方法
 mongoose.Query.prototype.exec = function(callback) {
@@ -39,7 +39,7 @@ mongoose.Query.prototype.exec = function(callback) {
       //   method: me.op,
       //   options: me.option,
       //   conditions: me._conditions
-      // }));
-    });
+      // }))
+    })
   }
 }

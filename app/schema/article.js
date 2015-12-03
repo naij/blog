@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-var Schema   = mongoose.Schema;
+var mongoose = require('mongoose')
+var Schema   = mongoose.Schema
 
 module.exports = new Schema({
   type: { type: String },
@@ -10,4 +10,4 @@ module.exports = new Schema({
   update: { type: Date, default: Date.now },
   draft: { type: Boolean, default: false },
   pv: { type: Number, default: 0 }
-});
+})

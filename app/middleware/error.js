@@ -2,7 +2,7 @@
  * 统一业务级错误处理中心：转换业务级错误提示
  * 应用级错误需要在 app.on('error') 事件上做
  */
-var FError = require('../../lib/error');
+var FError = require('../../lib/error')
 
 module.exports = function *(next) {
   try {
@@ -13,7 +13,7 @@ module.exports = function *(next) {
     if (/\/(api|manage)\/.*/.test(this.request.path)) {
       // json SyntaxError
       if (error.status === 400 && typeof error.body === 'string') {
-        this.status = 400;
+        this.status = 400
         this.body = {
           info: {
             ok: false,
@@ -25,7 +25,7 @@ module.exports = function *(next) {
       // 自定义错误
       switch(error.name) {
         case 'FError':
-          this.status = error.status;
+          this.status = error.status
           this.body = {
             info: {
               ok: false,
@@ -35,7 +35,7 @@ module.exports = function *(next) {
           break
         // mongodb 操作错误
         case 'ValidationError':
-          this.status = FError.MissingParameter;
+          this.status = FError.MissingParameter
           this.body = {
             info: {
               ok: false,
@@ -46,7 +46,7 @@ module.exports = function *(next) {
         // mongoError E11000 唯一值
         case 'MongoError':
           if (error.code === 11000) {
-            this.status = FError.InvalidArgument;
+            this.status = FError.InvalidArgument
             this.body = {
               info: {
                 ok: false,
@@ -56,7 +56,7 @@ module.exports = function *(next) {
           }
           break
         case 'CastError':
-          this.status = FError.InvalidArgument;
+          this.status = FError.InvalidArgument
           this.body = {
             info: {
               ok: false,

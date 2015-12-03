@@ -1,10 +1,10 @@
-var mongoose = require('mongoose');
-var thunkify = require('thunkify');
-var Schema = require('../schema/tag');
-var Model;
+var mongoose = require('mongoose')
+var thunkify = require('thunkify')
+var Schema = require('../schema/tag')
+var Model
 
-Model = mongoose.model('Tag', Schema, 'tag');
+Model = mongoose.model('Tag', Schema, 'tag')
 
 
 
-module.exports = Model;
+module.exports = Model

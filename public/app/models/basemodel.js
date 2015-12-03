@@ -1,5 +1,5 @@
 KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
-  var SyncCounter = 0;
+  var SyncCounter = 0
   /**
    * 流控对象
    * @type {Object}
@@ -36,7 +36,7 @@ KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
      * @return {Boolean}
      */
     isIntervene: function () {
-      return this.$ii;
+      return this.$ii
     },
     /**
      * 处理登录
@@ -48,14 +48,14 @@ KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
         弹出登录浮层？
         当登录成功后processCode处理下一个
        */
-      var self = this;
-      var lastTime = self.$lastLTime;
+      var self = this
+      var lastTime = self.$lastLTime
       if (!ignoreValidTime && (!lastTime || S.now() - lastTime < validTime)) {
-        self.processCode();
+        self.processCode()
       } else {
         //...
-        self.$lastLTime = S.now();
-        self.processCode();
+        self.$lastLTime = S.now()
+        self.processCode()
       }
     },
     /**
@@ -68,14 +68,14 @@ KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
         弹出层处理验证码？
         当验证码验证成功后调用processCode处理下一个
        */
-      var self = this;
-      var lastTime = self.$lastVCTime;
+      var self = this
+      var lastTime = self.$lastVCTime
       if (!ignoreValidTime && (!lastTime || S.now() - lastTime < validTime)) {
-        self.processCode();
+        self.processCode()
       } else {
         //...
-        self.$lastVCTime = S.now();
-        self.processCode();
+        self.$lastVCTime = S.now()
+        self.processCode()
       }
     },
     getJSONPToken: function (callback) {
@@ -85,23 +85,23 @@ KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
      * 处理流控code
      */
     processCode: function () {
-      var self = this;
-      var code = self.$code;
+      var self = this
+      var code = self.$code
       if (code) {
-        var c = code.list.shift();
+        var c = code.list.shift()
         if (c) {
-          delete code.hash[c.code];
-          var m = self.CodeMap[c.code];
+          delete code.hash[c.code]
+          var m = self.CodeMap[c.code]
           if (m) {
-            self[m.method](m.validTime, c.iVT);
+            self[m.method](m.validTime, c.iVT)
           } else {
-            throw new Error('unrecognize error code:' + c);
+            throw new Error('unrecognize error code:' + c)
           }
         } else {
-          self.runWaitModels();
+          self.runWaitModels()
         }
       } else {
-        self.runWaitModels();
+        self.runWaitModels()
       }
     },
     /**
@@ -110,23 +110,23 @@ KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
      * @param {Boolean} ignoreValidTime 是否忽略有效时间
      */
     start: function (code, ignoreValidTime) {
-      var self = this;
+      var self = this
       if (!self.$code) {
         self.$code = {
           list: [],
           hash: {}
-        };
+        }
         if (!Magix.has(self.$code.hash, code)) {
           self.$code.list.push({
             code: code,
             iVT: ignoreValidTime
-          });
-          self.$code.hash[code] = true;
+          })
+          self.$code.hash[code] = true
         }
       }
       if (!self.$ii) {
-        self.$ii = true;
-        self.processCode();
+        self.$ii = true
+        self.processCode()
       }
     },
     /**
@@ -135,62 +135,62 @@ KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
      * @param {Objet} options model发送请求时的选项对象
      */
     addWaitModel: function (model, options) {
-      var self = this;
+      var self = this
       if (!self.$wmList) {
-        self.$wmList = [];
+        self.$wmList = []
       }
       self.$wmList.push({
         model: model,
         options: options
-      });
+      })
     },
     /**
      * 运行等待中的model对象
      */
     runWaitModels: function () {
-      var self = this;
-      var list = self.$wmList;
+      var self = this
+      var list = self.$wmList
       if (self.$ii) {
-        delete self.$ii;
+        delete self.$ii
         if (list) {
           for (var i = 0, one; i < list.length; i++) {
-            one = list[i];
-            one.model.sync(one.options);
+            one = list[i]
+            one.model.sync(one.options)
           }
         }
-        self.$wmList = [];
+        self.$wmList = []
       }
     }
-  };
+  }
 
 
   return MxModel.extend({
     parse: function (resp) {
-      return resp;
+      return resp
     },
     sync: function (callback) {
-      var model = this;
-      var data;
-      var url = model.get('url');
-      var options = model.get('options') || {};
-      var type = options.type || 'GET';
-      var jsonp = options.jsonp;
-      var async = options.async;
-      var dataType = options.dataType || 'json';
-      var noVerify = options.noVerify;
-      var restfulType = options.restfulType;
+      var model = this
+      var data
+      var url = model.get('url')
+      var options = model.get('options') || {}
+      var type = options.type || 'GET'
+      var jsonp = options.jsonp
+      var async = options.async
+      var dataType = options.dataType || 'json'
+      var noVerify = options.noVerify
+      var restfulType = options.restfulType
 
       // GET请求加上时间戳防止缓存
       if (type.toUpperCase() === 'GET') {
-        model.setUrlParams('t', S.now());
-        data = model.getUrlParams();
+        model.setUrlParams('t', S.now())
+        data = model.getUrlParams()
       } else {
-        data = model.getPostParams();
+        data = model.getPostParams()
       }
 
       // 转换为restful接口
       if (/\{.*\}/.test(url)) {
-        url = S.substitute(url, model['$' + type.toUpperCase()]);
+        url = S.substitute(url, model['$' + type.toUpperCase()])
       }
 
       var params = {
@@ -205,45 +205,45 @@ KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
             // 在modelmanager里面配置
             // 用来直接返回结果
             if(noVerify){
-              callback(null, resp);
-              return;
+              callback(null, resp)
+              return
             }
 
             if (!resp.info.ok) {
-              Util.showGlobalTip(resp.info.message);
-              callback(e.message || 'request error');
+              Util.showGlobalTip(resp.info.message)
+              callback(e.message || 'request error')
             } else {
-              callback(null, {data: resp.data});
+              callback(null, {data: resp.data})
             }
           } else {
             try {
-              callback(null, {data: resp.data});
+              callback(null, {data: resp.data})
             } catch (e) { 
               //方法执行出错
-              Util.showGlobalTip(e.message);
-              callback( e.message || 'request error');
+              Util.showGlobalTip(e.message)
+              callback( e.message || 'request error')
             }
           }
         },
         error: function (x, msg, xhr) {
           //没权限跳回登录页
           if(xhr.status == 403) {
-            window.location.href = '#!/manage/login';
+            window.location.href = '#!/manage/login'
           }
         }
-      };
-
-      if (jsonp) {
-        params.jsonp = (jsonp === true ? '_c' : jsonp);
       }
 
-      return KISSY.io(params);
+      if (jsonp) {
+        params.jsonp = (jsonp === true ? '_c' : jsonp)
+      }
+
+      return KISSY.io(params)
     }
-  });
+  })
 }, {
   requires: [
     "mxext/model", 
     "ajax",
     "app/util/util"
   ]
-});
+})

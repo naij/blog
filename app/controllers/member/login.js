@@ -1,13 +1,13 @@
-var config   = require('config');
-var sanitize = require('validator');
-var Util   = require('../../../lib/util');
-var FError   = require('../../../lib/error');
-var User   = require('../../models/user');
+var config   = require('config')
+var sanitize = require('validator')
+var Util   = require('../../../lib/util')
+var FError   = require('../../../lib/error')
+var User   = require('../../models/user')
 
 module.exports = function *() {
-  var body = this.request.body;
-  var loginname = sanitize.trim(body.loginname);
-  var password = sanitize.trim(body.password);
+  var body = this.request.body
+  var loginname = sanitize.trim(body.loginname)
+  var password = sanitize.trim(body.password)
 
   if (!loginname || !password) {
     this.body = {
@@ -17,12 +17,12 @@ module.exports = function *() {
       info: {
         ok: true
       }
-    };
+    }
 
-    return;
+    return
   }
 
-  var user = yield User.findOne({'loginname': loginname}).exec();
+  var user = yield User.findOne({'loginname': loginname}).exec()
 
   if (!user) {
     this.body = {
@@ -32,7 +32,7 @@ module.exports = function *() {
       info: {
         ok: true
       }
-    };
+    }
   } else if (password !== user.password) {
     this.body = {
       data: {
@@ -41,9 +41,9 @@ module.exports = function *() {
       info: {
         ok: true
       }
-    };
+    }
   } else {
-    genSession.call(this, user);
+    genSession.call(this, user)
 
     this.body = {
       info: {
@@ -54,11 +54,11 @@ module.exports = function *() {
 }
 
 function genSession(user) {
-  var authToken = Util.encrypt(user._id + '|' + user.loginname + '|' + user.password, config.sessionSecret);
+  var authToken = Util.encrypt(user._id + '|' + user.loginname + '|' + user.password, config.sessionSecret)
 
   //cookie 有效期30天
   this.cookies.set(config.cookieName, authToken, {
     path: '/',
     maxAge: 1000 * 60 * 60 * 24 * 30
-  }); 
+  }) 
 }
