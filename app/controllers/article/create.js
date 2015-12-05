@@ -13,7 +13,7 @@ module.exports = function *() {
     tag: body.tag,
     title: body.title,
     content: html,
-    markdown: md.replace(/&/g, "&amp"),
+    markdown: md.replace(/&/g, "&amp;"),
     draft: body.draft
   })
 
