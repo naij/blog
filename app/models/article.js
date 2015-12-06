@@ -5,6 +5,4 @@ var Model
 
 Model = mongoose.model('Article', Schema, 'article')
 
-
-
 module.exports = Model

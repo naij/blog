@@ -5,6 +5,4 @@ var Model
 
 Model = mongoose.model('Tag', Schema, 'tag')
 
-
-
 module.exports = Model
