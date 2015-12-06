@@ -21,7 +21,7 @@ module.exports = function (app) {
   app.use(route.put('/manage/article/:id', require('../controllers/article/update')))
   app.use(route.del('/manage/article/:id', require('../controllers/article/remove')))
   app.use(route.get('/manage/tag', require('../controllers/tag/multi')))
-  app.use(route.get('/manage/pic', require('../controllers/pic/multi')))
-  app.use(route.post('/manage/pic', require('../controllers/pic/create')))
+  // app.use(route.get('/manage/pic', require('../controllers/pic/multi')))
+  // app.use(route.post('/manage/pic', require('../controllers/pic/create')))
   app.use(route.post('/manage/tool/qr', require('../controllers/tool/qr')))
 }
