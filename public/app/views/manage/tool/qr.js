@@ -1,20 +1,20 @@
-KISSY.add("app/views/manage/tool/qr", function (S, View, MM, VOM, Router, Node, Util) {
-  var $ = Node.all;
+KISSY.add('app/views/manage/tool/qr', function (S, View, MM, VOM, Router, Node, Util) {
+  var $ = Node.all
 
   return View.extend({
     locationChange: function (e) {
-      this.render();
+      this.render()
     },
     render: function () {
-      var me = this;
+      var me = this
 
-      me.setViewPagelet();
+      me.setViewPagelet()
     },
     'create<click>': function (e) {
-      e.halt();
-      var me = this;
-      var pagelet = me.getManaged('pagelet');
-      var text = $('#J_qr_text').val();
+      e.halt()
+      var me = this
+      var pagelet = me.getManaged('pagelet')
+      var text = $('#J_qr_text').val()
 
       me.manage(MM.fetchAll([{
         name: "manage_tool_qr",
@@ -22,12 +22,12 @@ KISSY.add("app/views/manage/tool/qr", function (S, View, MM, VOM, Router, Node, 
           text: text
         }
       }], function (errs, MesModel) {
-        var data = MesModel.get('data');
+        var data = MesModel.get('data')
 
-        pagelet.setChunkData({qr: data.qr});
-      }));
+        pagelet.setChunkData({qr: data.qr})
+      }))
     }
-  });
+  })
 },{
   requires:[
     'mxext/view',
@@ -37,4 +37,4 @@ KISSY.add("app/views/manage/tool/qr", function (S, View, MM, VOM, Router, Node, 
     'node',
     'app/util/util'
   ]
-});
+})

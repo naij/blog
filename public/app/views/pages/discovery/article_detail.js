@@ -1,31 +1,31 @@
-KISSY.add("app/views/pages/discovery/article_detail", function (S, View, MM, VOM, Router, Node, Util) {
-  var $ = Node.all;
+KISSY.add('app/views/pages/discovery/article_detail', function (S, View, MM, VOM, Router, Node, Util) {
+  var $ = Node.all
 
   return View.extend({
     locationChange: function (e) {
-      this.render();
+      this.render()
     },
     render: function () {
-      var me = this;
-      var loc = me.location;
-      var params = loc.params;
-      var id = params.id;
+      var me = this
+      var loc = me.location
+      var params = loc.params
+      var id = params.id
 
       me.manage(MM.fetchAll([{
-        name: "article_detail",
+        name: 'article_detail',
         urlParams: {
         	id: id
         }
       }], function (errs, MesModel) {
-        var data = MesModel.get('data');
+        var data = MesModel.get('data')
 
         me.setViewPagelet({
           list: data,
           aid: id
-        });
-      }));
+        })
+      }))
     }
-  });
+  })
 },{
   requires:[
     'mxext/view',
@@ -35,4 +35,4 @@ KISSY.add("app/views/pages/discovery/article_detail", function (S, View, MM, VOM
     'node',
     'app/util/util'
   ]
-});
+})

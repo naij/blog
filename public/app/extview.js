@@ -1,4 +1,4 @@
-KISSY.add("app/extview", function(S, MV, Base) {
+KISSY.add('app/extview', function(S, MV, Base) {
 
   var ViewModel = function(config) {
     ViewModel.superclass.constructor.call(this, config)

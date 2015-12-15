@@ -1,35 +1,35 @@
-KISSY.add("app/views/manage/picture/list", function (S, View, MM, VOM, Router, Node, Util, Calendar) {
-  var $ = Node.all;
+KISSY.add('app/views/manage/picture/list', function (S, View, MM, VOM, Router, Node, Util, Calendar) {
+  var $ = Node.all
 
   return View.extend({
     init: function (e) {
-      var me = this;
+      var me = this
 
       me.on('destroy', function() {
-        var calendar = me.getManaged('calendar');
-        calendar.destructor();
-      });
+        var calendar = me.getManaged('calendar')
+        calendar.destructor()
+      })
     },
     locationChange: function (e) {
-      this.render();
+      this.render()
     },
     render: function () {
-      var me = this;
-      var loc = me.location;
-      var params = S.clone(loc.params);
-      var startTime = params.startTime;
-      var endTime = params.endTime;
+      var me = this
+      var loc = me.location
+      var params = S.clone(loc.params)
+      var startTime = params.startTime
+      var endTime = params.endTime
 
       if(startTime && endTime) {
-        startTime = Util.dateParse(startTime);
-        endTime = Util.dateParse(endTime);
+        startTime = Util.dateParse(startTime)
+        endTime = Util.dateParse(endTime)
       } else {
-        startTime = Util.dateRecent(-6);
-        endTime = Util.dateRecent(0);
+        startTime = Util.dateRecent(-6)
+        endTime = Util.dateRecent(0)
       }
       
-      me.manage('startTime', startTime);
-      me.manage('endTime', endTime);
+      me.manage('startTime', startTime)
+      me.manage('endTime', endTime)
 
       me.manage(MM.fetchAll([{
         name: "manage_picture_list",
@@ -38,22 +38,22 @@ KISSY.add("app/views/manage/picture/list", function (S, View, MM, VOM, Router, N
           endTime: Util.dateFormat(endTime)
         }
       }], function (errs, MesModel) {
-        var data = MesModel.get('data');
+        var data = MesModel.get('data')
 
         me.setViewPagelet({
           list: data,
           startTime: Util.dateFormat(startTime),
           endTime: Util.dateFormat(endTime)
         }, function () {
-          me.components();
-        });
-      }));
+          me.components()
+        })
+      }))
     },
     components: function () {
-      var me = this;
-      var pagelet = me.getManaged('pagelet');
-      var startTime = me.getManaged('startTime');
-      var endTime = me.getManaged('endTime');
+      var me = this
+      var pagelet = me.getManaged('pagelet')
+      var startTime = me.getManaged('startTime')
+      var endTime = me.getManaged('endTime')
 
       // 日历
       var calendar = new Calendar({
@@ -72,35 +72,35 @@ KISSY.add("app/views/manage/picture/list", function (S, View, MM, VOM, Router, N
           end: endTime
         },
         autoRender: false
-      });
+      })
 
       calendar.on('rangeSelect', function (e) {
-        calendar.hide();
-        var startTime = Calendar.Date.format(e.start,'yyyy-mm-dd');
-        var endTime = Calendar.Date.format(e.end,'yyyy-mm-dd');
+        calendar.hide()
+        var startTime = Calendar.Date.format(e.start,'yyyy-mm-dd')
+        var endTime = Calendar.Date.format(e.end,'yyyy-mm-dd')
 
-        me.navigate('startTime=' + startTime + '&endTime=' + endTime);
-      });
+        me.navigate('startTime=' + startTime + '&endTime=' + endTime)
+      })
 
-      me.manage('calendar', calendar);
+      me.manage('calendar', calendar)
     },
     'add<click>': function (e) {
-      e.halt();
-      var me = this;
-      var top = $('#' + e.currentId).parent('.toolbar').offset().top;
+      e.halt()
+      var me = this
+      var top = $('#' + e.currentId).parent('.toolbar').offset().top
       var dialogConfig = Util.getDefaultDialogConfig({
         width: 620,
         top: top
-      });
-      var viewName = 'app/views/manage/picture/add';
+      })
+      var viewName = 'app/views/manage/picture/add'
       var viewOptions = {
         callback: function () {
-          me.render();
+          me.render()
         }
-      };
-      Util.showDialog(dialogConfig, viewName, viewOptions);
+      }
+      Util.showDialog(dialogConfig, viewName, viewOptions)
     }
-  });
+  })
 },{
   requires:[
     'mxext/view',
@@ -111,4 +111,4 @@ KISSY.add("app/views/manage/picture/list", function (S, View, MM, VOM, Router, N
     'app/util/util',
     'brix/gallery/calendar/index'
   ]
-});
+})

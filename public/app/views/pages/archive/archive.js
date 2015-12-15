@@ -1,24 +1,24 @@
-KISSY.add("app/views/pages/archive/archive", function (S, View, MM, VOM, Router, Node, Util) {
-  var $ = Node.all;
+KISSY.add('app/views/pages/archive/archive', function (S, View, MM, VOM, Router, Node, Util) {
+  var $ = Node.all
 
   return View.extend({
     locationChange: function (e) {
-      this.render();
+      this.render()
     },
     render: function () {
-      var me = this;
+      var me = this
 
       me.manage(MM.fetchAll([{
-        name: "archive"
+        name: 'archive'
       }], function (errs, MesModel) {
-        var data = MesModel.get('data');
+        var data = MesModel.get('data')
 
         me.setViewPagelet({
           list: data
-        });
-      }));
+        })
+      }))
     }
-  });
+  })
 },{
   requires:[
     'mxext/view',
@@ -28,4 +28,4 @@ KISSY.add("app/views/pages/archive/archive", function (S, View, MM, VOM, Router,
     'node',
     'app/util/util'
   ]
-});
+})

@@ -1,9 +1,4 @@
-/**
- * @fileOverview 配置文件
- * @author 行列
- * @version 1.0
- */
-KISSY.add("app/ini", function (S) {
+KISSY.add('app/ini', function (S) {
   var T = {
     routes: {
       'app/views/default': [

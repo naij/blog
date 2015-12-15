@@ -1,15 +1,15 @@
-KISSY.add("app/views/manage/article/list", function (S, View, MM, VOM, Router, Node, Util) {
-  var $ = Node.all;
+KISSY.add('app/views/manage/article/list', function (S, View, MM, VOM, Router, Node, Util) {
+  var $ = Node.all
 
   return View.extend({
     locationChange: function (e) {
-      this.render();
+      this.render()
     },
     render: function () {
-      var me = this;
-      var loc = me.location;
-      var params = loc.params;
-      var typeId = params.typeId || 'f2e';
+      var me = this
+      var loc = me.location
+      var params = loc.params
+      var typeId = params.typeId || 'f2e'
       var typeList = [
         {
           typeId: 'f2e',
@@ -27,10 +27,10 @@ KISSY.add("app/views/manage/article/list", function (S, View, MM, VOM, Router, N
 
       S.each(typeList, function (item) {
         if (item.typeId == typeId) {
-          item.selected = true;
-          return false;
+          item.selected = true
+          return false
         }
-      });
+      })
 
       me.manage(MM.fetchAll([{
         name: "manage_article_list",
@@ -38,33 +38,33 @@ KISSY.add("app/views/manage/article/list", function (S, View, MM, VOM, Router, N
           type: typeId
         }
       }], function (errs, MesModel) {
-        var data = MesModel.get('data');
+        var data = MesModel.get('data')
 
         me.setViewPagelet({
           list: data,
           typeList: typeList
         }, function () {
-          me.components();
-        });
-      }));
+          me.components()
+        })
+      }))
     },
     components: function () {
-      var me = this;
-      var pagelet = me.getManaged('pagelet');
-      var typeDropdown = pagelet.getBrick('J_type_dropdown');
+      var me = this
+      var pagelet = me.getManaged('pagelet')
+      var typeDropdown = pagelet.getBrick('J_type_dropdown')
       typeDropdown.on('selected', function (ev) {
-        me.navigate('typeId=' + ev.value);
-      });
+        me.navigate('typeId=' + ev.value)
+      })
     },
     'del<click>': function (e) {
-      e.halt();
-      var me = this;
-      var top = $('#' + e.currentId).parent('tr').offset().top;
+      e.halt()
+      var me = this
+      var top = $('#' + e.currentId).parent('tr').offset().top
       var dialogConfig = Util.getDefaultDialogConfig({
         width: 400, 
         top: top
-      });
-      var viewName = 'app/views/util/confirm';
+      })
+      var viewName = 'app/views/util/confirm'
       var viewOptions = {
         confirmFn: function(){
           me.manage(MM.fetchAll([{
@@ -73,19 +73,19 @@ KISSY.add("app/views/manage/article/list", function (S, View, MM, VOM, Router, N
               id: e.params.id
             }
           }], function(MesModel) {
-            Util.hideDialog();
-            me.render();
-          }));
+            Util.hideDialog()
+            me.render()
+          }))
         },
         cancelFn: function(){
-          Util.hideDialog();
+          Util.hideDialog()
         },
         confirmTitle: '删除文章',
         confirmContent: '您确定要删除这篇文章？'
-      };
-      Util.showDialog(dialogConfig, viewName, viewOptions);
+      }
+      Util.showDialog(dialogConfig, viewName, viewOptions)
     }
-  });
+  })
 },{
   requires:[
     'mxext/view',
@@ -95,4 +95,4 @@ KISSY.add("app/views/manage/article/list", function (S, View, MM, VOM, Router, N
     'node',
     'app/util/util'
   ]
-});
+})

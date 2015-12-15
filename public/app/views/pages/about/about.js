@@ -1,16 +1,16 @@
-KISSY.add("app/views/pages/about/about", function (S, View, MM, VOM, Router, Node, Util) {
-  var $ = Node.all;
+KISSY.add('app/views/pages/about/about', function (S, View, MM, VOM, Router, Node, Util) {
+  var $ = Node.all
 
   return View.extend({
     locationChange: function (e) {
-      this.render();
+      this.render()
     },
     render: function () {
-      var me = this;
+      var me = this
 
-      me.setViewPagelet();
+      me.setViewPagelet()
     }
-  });
+  })
 },{
   requires:[
     'mxext/view',
@@ -20,4 +20,4 @@ KISSY.add("app/views/pages/about/about", function (S, View, MM, VOM, Router, Nod
     'node',
     'app/util/util'
   ]
-});
+})
