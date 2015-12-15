@@ -1,4 +1,4 @@
-KISSY.add("app/util/calendar/calendar", function(S, Vframe, VOM, DatePicker) {
+KISSY.add('app/util/calendar/calendar', function(S, Vframe, VOM, DatePicker) {
   var Calendar = {}
 
   S.mix(Calendar, {
@@ -19,5 +19,9 @@ KISSY.add("app/util/calendar/calendar", function(S, Vframe, VOM, DatePicker) {
   return Calendar
 
 }, {
-  requires: ['magix/vframe', 'magix/vom', 'brix/gallery/datepicker/index']
+  requires: [
+    'magix/vframe',
+    'magix/vom',
+    'brix/gallery/datepicker/index'
+  ]
 })

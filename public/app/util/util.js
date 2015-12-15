@@ -1,4 +1,4 @@
-KISSY.add("app/util/util", function (S, Format, Dialog, Tooltip, Calendar) {
+KISSY.add('app/util/util', function (S, Format, Dialog, Tooltip, Calendar) {
   var exports = {}
 
   S.mix(exports, Format)

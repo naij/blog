@@ -1,4 +1,4 @@
-KISSY.add("app/util/tooltip/tooltip", function(S, Vframe, VOM, BXDialog) {
+KISSY.add('app/util/tooltip/tooltip', function(S, Vframe, VOM, BXDialog) {
   var Tooltip = {
     entity: null
   }
@@ -73,5 +73,9 @@ KISSY.add("app/util/tooltip/tooltip", function(S, Vframe, VOM, BXDialog) {
   return Tooltip
 
 }, {
-  requires: ['magix/vframe', 'magix/vom', 'brix/gallery/dialog/index']
+  requires: [
+    'magix/vframe',
+    'magix/vom',
+    'brix/gallery/dialog/index'
+  ]
 })

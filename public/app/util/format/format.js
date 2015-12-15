@@ -1,4 +1,4 @@
-KISSY.add("app/util/format/format", function(S, Vframe, VOM) {
+KISSY.add('app/util/format/format', function(S, Vframe, VOM) {
   var Format = {}
 
   S.mix(Format, {
@@ -50,5 +50,8 @@ KISSY.add("app/util/format/format", function(S, Vframe, VOM) {
   return Format
 
 }, {
-  requires: ['magix/vframe', 'magix/vom']
+  requires: [
+    'magix/vframe',
+    'magix/vom'
+  ]
 })

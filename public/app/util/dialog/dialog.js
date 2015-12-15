@@ -1,4 +1,4 @@
-KISSY.add("app/util/dialog/dialog", function(S, Vframe, VOM, BXDialog) {
+KISSY.add('app/util/dialog/dialog', function(S, Vframe, VOM, BXDialog) {
   var $ = S.all
   var bxEntity
   var vfDialog
@@ -170,5 +170,9 @@ KISSY.add("app/util/dialog/dialog", function(S, Vframe, VOM, BXDialog) {
   return Dialog
 
 }, {
-  requires: ['magix/vframe', 'magix/vom', 'brix/gallery/dialog/index']
+  requires: [
+    'magix/vframe',
+    'magix/vom',
+    'brix/gallery/dialog/index'
+  ]
 })
