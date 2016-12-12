@@ -1,0 +1,50 @@
+<div bx-tmpl="tag" bx-datakey="tag,list">
+  {{#tag}}
+  <div class="wrap-hd clearfix">
+    <div class="title-bar">
+      <h2 class="title">标签“{{tag}}”的文章列表</h2>
+    </div>
+  </div>
+  <ul class="article-list">
+    {{#list}}
+    <li class="list-item">
+      <div class="hd">
+        <h3 class="title">
+          <a href="#!/pages/{{type}}/article_detail?id={{id}}">{{title}}</a>
+        </h3>
+        <div class="meta">
+          <span class="date">{{createdAt}}</span>
+          <span class="divide"></span>
+          <a class="tag" href="#!/pages/tags/tags?tag={{tag}}">{{tag}}</a>
+        </div>
+      </div>
+      <div class="bd markdown-body">
+        {{{content}}}
+      </div>
+      <div class="ft">
+        <a href="#!/pages/{{type}}/article_detail?id={{id}}" class="continue-reading">Read more →</a>
+      </div>
+    </li>
+    {{/list}}
+  </ul>
+  {{/tag}}
+  {{^tag}}
+  <div class="wrap-hd clearfix">
+    <div class="title-bar">
+      <h2 class="title">标签</h2>
+    </div>
+  </div>
+  <div class="tag-list">
+    <ul class="clearfix">
+      {{#list}}
+      <li>
+        <a href="#!/pages/tags/tags?tag={{tagName}}">
+          <span class="count">{{count}}</span>
+          {{tagName}}
+        </a>
+      </li>
+      {{/list}}
+    </ul>
+  </div>
+  {{/tag}}
+</div>

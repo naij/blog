@@ -1,8 +1,17 @@
-var mongoose = require('mongoose')
-var thunkify = require('thunkify')
-var Schema = require('../schema/tag')
-var Model
+'use strict'
 
-Model = mongoose.model('Tag', Schema, 'tag')
-
-module.exports = Model
+module.exports = function(sequelize, DataTypes) {
+  let Tag = sequelize.define('Tag', {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    tagName: DataTypes.STRING
+  }, {
+    tableName: 'tags',
+    timestamps: true,
+    underscored: false
+  })
+  return Tag
+}

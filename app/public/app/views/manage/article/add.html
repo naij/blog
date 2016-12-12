@@ -1,0 +1,61 @@
+<div class="article-edit">
+  <div class="hd">
+    <h3 class="title">文章添加</h3>
+  </div>
+  <div class="bd">
+    <form id="addForm">
+      <ul class="union-form">
+        <li class="field">
+          <p class="field-label2">类型</p>
+          <div bx-name="dropdown" style="width:150px;" class="dropdown" hidefocus="true">
+            <span class="dropdown-hd">
+              <span class="dropdown-text" value="f2e">f2e</span>
+              <i class="iconfont icon-arrow-down">&#459</i>
+            </span>
+            <ul class="dropdown-list">
+              <li class="dropdown-item dropdown-itemselected"><span value="f2e">f2e</span><i class="iconfont icon-ok">&#126</i></li>
+              <li class="dropdown-item"><span value="discovery">discovery</span><i class="iconfont icon-ok">&#126</i></li>
+              <li class="dropdown-item"><span value="life">life</span><i class="iconfont icon-ok">&#126</i></li>
+            </ul>
+            <input type="hidden" name="type" value="f2e">
+          </div>
+        </li>
+        <li class="field">
+          <p class="field-label2">标签</p>
+          <div bx-name="dropdown" style="width:150px;" class="dropdown" hidefocus="true">
+            <span class="dropdown-hd">
+              {{#tag}}
+              {{#selected}}
+              <span class="dropdown-text" value="{{tagName}}">{{tagName}}</span>
+              <i class="iconfont icon-arrow-down">&#459</i>
+              {{/selected}}
+              {{/tag}}
+            </span>
+            <ul class="dropdown-list">
+              {{#tag}}
+              <li class="dropdown-item {{#selected}}dropdown-itemselected{{/selected}}"><span value="{{tagName}}">{{tagName}}</span><i class="iconfont icon-ok">&#126</i></li>
+              {{/tag}}
+            </ul>
+            {{#tag}}
+            {{#selected}}
+            <input type="hidden" name="tag" value="{{tagName}}">
+            {{/selected}}
+            {{/tag}}
+          </div>
+        </li>
+        <li class="field">
+          <p class="field-label2">标题</p>
+          <input type="text" class="input" name="title">
+        </li>
+        <li class="field">
+          <p class="field-label2">内容</p>
+          <textarea class="textarea" name="content"></textarea>
+        </li>
+        <li class="field">
+          <a href="#" class="btn btn-small" mx-click="submit">发布</a>
+          <a href="#" class="btn btn-small" mx-click="draft">保存成草稿</a>
+        </li>
+      </ul>
+    </form>
+  </div>
+</div>

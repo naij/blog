@@ -9,22 +9,22 @@ var nodemon = require('gulp-nodemon')
 var combine = require('gulp-magix-combine')
 
 gulp.task('less', function() {
-  return gulp.src('./public/less/style.less')
+  return gulp.src('./app/public/less/style.less')
     .pipe(less())
-    .pipe(gulp.dest('./public/css/'))
+    .pipe(gulp.dest('./app/public/css/'))
 })
 
 gulp.task('watch_less', function() {
-  gulp.watch(['./public/less/*.less'], ['less'])
+  gulp.watch(['./app/public/less/*.less'], ['less'])
 })
 
 gulp.task('clean', function() {
-  return gulp.src('./public/build', {read: false})
+  return gulp.src('./app/public/build', {read: false})
     .pipe(clean())
 })
 
 gulp.task('compress', ['clean', 'less'], function() {
-  gulp.src('./public/app/views/**/*.js')
+  gulp.src('./app/public/app/views/**/*.js')
     .pipe(combine({
       magixVersion: 2.0
     }))
@@ -34,20 +34,20 @@ gulp.task('compress', ['clean', 'less'], function() {
     .pipe(uglify({
       output:{ascii_only:true}
     }))
-    .pipe(gulp.dest('./public/build/app/views'))
+    .pipe(gulp.dest('./app/public/build/app/views'))
 
-  gulp.src('./public/boot/*.js')
+  gulp.src('./app/public/boot/*.js')
     .pipe(rename(function (path) {
       path.basename += "-min"
     }))
     .pipe(uglify({
       output:{ascii_only:true}
     }))
-    .pipe(gulp.dest('./public/build/boot/'))
+    .pipe(gulp.dest('./app/public/build/boot/'))
 
   gulp.src([
-    './public/app/**/*.js', 
-    '!./public/app/views/**/*.js'
+    './app/public/app/**/*.js', 
+    '!./app/public/app/views/**/*.js'
   ])
     .pipe(rename(function (path) {
       path.basename += "-min"
@@ -55,45 +55,22 @@ gulp.task('compress', ['clean', 'less'], function() {
     .pipe(uglify({
       output:{ascii_only:true}
     }))
-    .pipe(gulp.dest('./public/build/app/'))
+    .pipe(gulp.dest('./app/public/build/app/'))
 
-  gulp.src('./public/css/*.css')
+  gulp.src('./app/public/css/*.css')
     .pipe(rename(function (path) {
       path.basename += "-min"
     }))
     .pipe(cssmin())
-    .pipe(gulp.dest('./public/build/css/'))
+    .pipe(gulp.dest('./app/public/build/css/'))
 
-  gulp.src('./public/fonts/*')
-    .pipe(gulp.dest('./public/build/fonts/'))
+  gulp.src('./app/public/fonts/*')
+    .pipe(gulp.dest('./app/public/build/fonts/'))
 })
 
 gulp.task('watch', [
   'less',
   'watch_less'
-])
-
-gulp.task('nodemon', function() {
-  nodemon({
-    script: 'app.js',
-    ext: 'js html',
-    ignore: [
-      '.gitignore', 
-      'readme.md', 
-      'gulpfile.js', 
-      'package.json', 
-      'public/*',
-      'tasks/*'
-    ],
-    execMap: {
-      "js": "node --harmony"
-    }
-  })
-})
-
-gulp.task('server', [
-  'watch',
-  'nodemon'
 ])
 
 gulp.task('build', [

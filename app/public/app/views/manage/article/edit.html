@@ -1,0 +1,26 @@
+<div class="article-edit">
+  <div class="hd">
+    <h3 class="title">文章编辑</h3>
+  </div>
+  <div class="bd">
+    {{#list}}
+    <form id="editForm">
+      <input type="hidden" value="{{id}}" name="id">
+      <ul class="union-form">
+        <li class="field">
+          <p class="field-label2">标题</p>
+          <input type="text" class="input" name="title" value="{{title}}">
+        </li>
+        <li class="field">
+          <p class="field-label2">内容</p>
+          <textarea class="textarea" name="content">{{{markdown}}}</textarea>
+        </li>
+        <li class="field">
+          <a href="#" class="btn btn-small" mx-click="submit">发布</a>
+          <a href="#" class="btn btn-small" mx-click="draft">保存成草稿</a>
+        </li>
+      </ul>
+    </form>
+    {{/list}}
+  </div>
+</div>

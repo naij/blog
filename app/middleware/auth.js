@@ -1,31 +1,26 @@
 /**
- * 接口是否需要登录验证中间件
+ * 登陆过滤器
+ * @param  {onject} options config那边传过来的配置
+ * @param  {object} app     app对象
+ * @return {object}         中间件
  */
-var crypto = require('crypto')
-var config = require('config')
-var FError = require('../../lib/error')
-var Util   = require('../../lib/util')
-var User   = require('../models/user')
 
-module.exports = function *(next) {
-  var cookie = this.cookies.get(config.cookieName)
+'use strict'
 
-  if (cookie && !this.session.user) {
-    var authToken = Util.decrypt(cookie, config.sessionSecret)
-    var userId = authToken.split('|')[0]
-    var user = yield User.findOne({_id: userId}).exec()
+module.exports = (options, app) => {
+  return function* auth(next) {
+    // 从session取用户信息
+    this.user = this.session.user
 
-    if (user) {
-      this.session.user = user.loginname
+    // 免登path校验
+    if (!this.user) {
+      if (this.request.path && options.unInterceptUrls.indexOf(this.request.path) == -1) {
+        return this.renderJSON({
+          code: 403,
+          message: 'LOGIN REQUIRED'
+        })
+      }
     }
+    yield next
   }
-
-  // 过滤 manage 路由下的所有接口
-  if (/^\/manage\/.+$/.test(this.request.path)) {
-    if (!this.session.user) {
-      throw FError.NotAuthorizedError()
-    }
-  }
-
-  yield next
 }

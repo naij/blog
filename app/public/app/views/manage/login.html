@@ -1,0 +1,27 @@
+<div class="login" bx-tmpl="error" bx-datakey="error">
+  {{#error}}
+  <div class="tip tip-alert">{{error}}</div>
+  {{/error}}
+
+  <div class="hd">
+    <h3 class="title">登录</h3>
+  </div>
+  <div class="bd">
+    <form id="loginForm">
+      <ul class="union-form">
+        <li class="field">
+          <label class="field-label">用户名：</label>
+          <input type="text" class="input" name="nickname">
+        </li>
+        <li class="field">
+          <label class="field-label">密码：</label>
+          <input type="password" class="input" name="password">
+        </li>
+        <li class="field">
+          <label class="field-label">&nbsp;</label>
+          <a href="#" class="button-m" mx-click="submit">登 录</a>
+        </li>
+      </ul>
+    </form>
+  </div>
+</div>
