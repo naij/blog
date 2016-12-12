@@ -2,6 +2,11 @@
 .*.swp
 .idea
 *.TODO
-node_modules
-logs
-run
+
+
+tmp/
+run/
+coverage/
+cov/
+logs/
+node_modules/
