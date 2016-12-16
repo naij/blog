@@ -32,7 +32,8 @@ module.exports = app => {
     * readbytag(tag) {
       let articles = yield this.app.models.Article.findAll({
         where: {
-          tag: tag
+          tag: tag,
+          status: 1
         }
       })
       return articles
