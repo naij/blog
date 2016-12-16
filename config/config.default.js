@@ -61,10 +61,17 @@ exports.auth = {
     '/api/tag/list'
   ].concat([
     '/pages/article/list',
-    '/pages/about/about',
-    '/pages/tags/tags',
-    '/pages/archive/archive',
-    '/manage/login'
+    '/pages/article/detail',
+    '/pages/about/index',
+    '/pages/tags/list',
+    '/pages/archive/list',
+    '/manage/login',
+    '/manage/index',
+    '/manage/article/list',
+    '/manage/article/add',
+    '/manage/article/edit',
+    '/manage/picture/list',
+    '/manage/tool/list'
   ])
 }
 
