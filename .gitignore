@@ -2,6 +2,7 @@
 .*.swp
 .idea
 *.TODO
+*.log
 
 
 tmp/

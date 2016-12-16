@@ -52,10 +52,36 @@ module.exports = app => {
       return tags
     }
     * archive() {
-      let article = yield this.app.models.Article.findAll({
-        group: ['createdAt']
+      let articles = yield this.app.models.Article.findAll({
+        attributes: [
+          'id',
+          'title',
+          'type',
+          [this.app.models.sequelize.fn('date_format', this.app.models.sequelize.col('createdAt'), '%Y-%m'), 'ym']
+        ],
+        where: {
+          status: 1
+        },
+        raw: true
       })
-      return article
+
+      let archiveList = []
+      for (let i = 0; i < articles.length;) {
+        let count = 0
+        let obj = {
+          ym: articles[i].ym,
+          list: []
+        }
+        for (let j = i; j < articles.length; j++) {
+          if (articles[i].ym == articles[j].ym) {
+            obj.list.push(articles[j])
+            count ++
+          }
+        }
+        archiveList.push(obj)
+        i += count
+      }
+      return archiveList
     }
     * create(postData) {
       let md = postData.content
