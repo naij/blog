@@ -12,9 +12,9 @@ module.exports = function(sequelize, DataTypes) {
     title: DataTypes.STRING,
     content: DataTypes.STRING,
     markdown: DataTypes.STRING,
-    draft: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
+    status: {
+      type: DataTypes.INTEGER,
+      defaultValue: 1
     }
   }, {
     tableName: 'articles',

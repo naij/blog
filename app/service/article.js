@@ -12,7 +12,7 @@ module.exports = app => {
       let articles = yield this.app.models.Article.findAll({
         where: {
           type: type,
-          draft: 0
+          status: 1
         }
       })
       return articles
@@ -63,7 +63,7 @@ module.exports = app => {
         title: postData.title,
         content: html,
         markdown: md.replace(/&/g, "&amp;"),
-        draft: postData.draft
+        status: postData.draft ? 0 : 1
       })
 
       return article
@@ -76,7 +76,7 @@ module.exports = app => {
         title: postData.title,
         content: html,
         markdown: md.replace(/&/g, "&amp;"),
-        draft: postData.draft
+        status: postData.draft ? 0 : 1
       }, {
         where: {
           id: postData.id
@@ -86,7 +86,9 @@ module.exports = app => {
       return article
     }
     * remove(postData) {
-      let article = yield this.app.models.Article.destroy({
+      let article = yield this.app.models.Article.update({
+        status: 2
+      }, {
         where: {
           id: postData.id
         }

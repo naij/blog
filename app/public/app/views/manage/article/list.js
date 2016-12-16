@@ -88,7 +88,14 @@ KISSY.add('app/views/manage/article/list', function (S, View, MM, VOM, Router, N
     renderer: {
       list: {
         status: function(self) {
-          return this.draft ? '<span class="color-orange">草稿</span>' : '<span class="color-green">正式</span>'
+          switch (this.status) {
+            case 0:
+              return '<span class="color-orange">草稿</span>'
+            case 1:
+              return '<span class="color-green">正式</span>'
+            case 2:
+              return '<span class="color-red">已删除</span>'
+          }
         }
       }
     }
