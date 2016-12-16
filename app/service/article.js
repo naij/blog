@@ -43,6 +43,9 @@ module.exports = app => {
           ['tag', 'tagName'],
           [this.app.models.sequelize.fn('count', 'tag'), 'count']
         ],
+        where: {
+          status: 1
+        },
         group: ['tag']
       })
       return tags

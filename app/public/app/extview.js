@@ -1,4 +1,5 @@
-KISSY.add('app/extview', function(S, MV, Base) {
+KISSY.add('app/extview', function(S, MV, Base, Node) {
+  var $ = Node.all
 
   var ViewModel = function(config) {
     ViewModel.superclass.constructor.call(this, config)
@@ -168,8 +169,31 @@ KISSY.add('app/extview', function(S, MV, Base) {
       var me = this
       me.vm = new ViewModel()
       me.vm._view = me
+    },
+    // 模拟的加载进度条
+    animateLoading: function () {
+      var uxloading = $('.switch-loading')
+      S.Anim.stop(uxloading, true)
+      uxloading.css({
+        opacity: 1,
+        width: 0
+      })
+      uxloading.animate({
+        width: '100%'
+      }, 0.2, 'easeNone', function () {
+        var _this = this
+        setTimeout(function () {
+          uxloading.animate({
+            opacity: 0
+          }, 0.25)
+        }, 250)
+      })
     }
   })
 }, {
-  requires: ["mxext/view", "base"]
+  requires: [
+    'mxext/view',
+    'base',
+    'node'
+  ]
 })

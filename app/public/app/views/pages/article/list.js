@@ -1,17 +1,21 @@
-KISSY.add('app/views/pages/f2e/article_list', function (S, View, MM, VOM, Router, Node, Util) {
+KISSY.add('app/views/pages/article/list', function (S, View, MM, VOM, Router, Node, Util) {
   var $ = Node.all
 
   return View.extend({
     locationChange: function (e) {
+      this.animateLoading()
       this.render()
     },
     render: function () {
       var me = this
+      var loc = me.location
+      var params = loc.params
+      var type = params.type || 'f2e'
 
       me.manage(MM.fetchAll([{
         name: 'article_list',
         urlParams: {
-        	type: 'f2e'
+          type: type
         }
       }], function (errs, MesModel) {
         var data = MesModel.get('data')

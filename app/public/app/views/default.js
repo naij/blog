@@ -3,17 +3,6 @@ KISSY.add('app/views/default', function (S, View, VOM, UA, Node, R, Util) {
   return View.extend({
     init: function () {
       var me = this
-      //me.on('__PAHTNAME__',)
-      //observePathname
-      //ovserveParams
-
-      //me.observeLocation('',PATHNAME)
-
-      //me.observeLocation(['name','page'])
-      //1 数据预读取
-      //2.事件绑定
-      //3. observe
-      //4. context 当前view所需的template已准备好（如果有）
       me.observeLocation({
         pathname: true
       })
@@ -49,25 +38,6 @@ KISSY.add('app/views/default', function (S, View, VOM, UA, Node, R, Util) {
       this.animateLoading()
       Util.hideDialog()
       Util.hideToolTip()
-    },
-    // 模拟的加载进度条
-    animateLoading: function () {
-      var uxloading = $('.switch-loading')
-      S.Anim.stop(uxloading, true)
-      uxloading.css({
-        opacity: 1,
-        width: 0
-      })
-      uxloading.animate({
-        width: '100%'
-      }, 0.2, 'easeNone', function () {
-        var _this = this
-        setTimeout(function () {
-          uxloading.animate({
-            opacity: 0
-          }, 0.25)
-        }, 250)
-      })
     }
   })
 }, {

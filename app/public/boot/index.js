@@ -20,9 +20,13 @@
     })
 
     Magix.start({
+      nativeHistory: true,
       appRoot: bootConfig.staticCDN,
       iniFile:'app/ini',
-      extensions: ["app/extview"]
+      extensions: [
+        'app/extview',
+        'app/vclick'
+      ]
     })
   })
 

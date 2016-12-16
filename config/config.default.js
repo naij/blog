@@ -59,7 +59,13 @@ exports.auth = {
     '/api/article/bytag',
     '/api/article/taggroup',
     '/api/tag/list'
-  ]
+  ].concat([
+    '/pages/article/list',
+    '/pages/about/about',
+    '/pages/tags/tags',
+    '/pages/archive/archive',
+    '/manage/login'
+  ])
 }
 
 /**

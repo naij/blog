@@ -31,14 +31,23 @@ function admin(app) {
 function pages(app) {
   app.get('/', app.controller.home.index)
   app.get('/debug', app.controller.home.debug)
+  app.get('/pages/article/list', app.controller.home.index)
+  app.get('/pages/article/detail', app.controller.home.index)
+  app.get('/pages/about/index', app.controller.home.index)
+  app.get('/pages/tags/list', app.controller.home.index)
+  app.get('/pages/archive/list', app.controller.home.index)
+  app.get('/manage/login', app.controller.home.index)
+  app.get('/manage/index', app.controller.home.index)
+  app.get('/manage/article/list', app.controller.home.index)
+  app.get('/manage/article/add', app.controller.home.index)
+  app.get('/manage/article/edit', app.controller.home.index)
+  app.get('/manage/picture/list', app.controller.home.index)
+  app.get('/manage/tool/list', app.controller.home.index)
 }
 
 module.exports = function(app) {
   pages(app)
-  // 通用接口
   common(app)
-  // 前台接口
   front(app)
-  // 后台接口
   admin(app)
 }

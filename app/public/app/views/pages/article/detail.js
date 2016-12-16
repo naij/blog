@@ -1,4 +1,4 @@
-KISSY.add('app/views/pages/discovery/article_detail', function (S, View, MM, VOM, Router, Node, Util) {
+KISSY.add('app/views/pages/article/detail', function (S, View, MM, VOM, Router, Node, Util) {
   var $ = Node.all
 
   return View.extend({
@@ -14,7 +14,7 @@ KISSY.add('app/views/pages/discovery/article_detail', function (S, View, MM, VOM
       me.manage(MM.fetchAll([{
         name: 'article_detail',
         urlParams: {
-        	id: id
+          id: id
         }
       }], function (errs, MesModel) {
         var data = MesModel.get('data')

@@ -1,4 +1,4 @@
-KISSY.add('app/views/pages/f2e/article_detail', function (S, View, MM, VOM, Router, Node, Util) {
+KISSY.add('app/views/pages/archive/list', function (S, View, MM, VOM, Router, Node, Util) {
   var $ = Node.all
 
   return View.extend({
@@ -7,21 +7,14 @@ KISSY.add('app/views/pages/f2e/article_detail', function (S, View, MM, VOM, Rout
     },
     render: function () {
       var me = this
-      var loc = me.location
-      var params = loc.params
-      var id = params.id
 
       me.manage(MM.fetchAll([{
-        name: 'article_detail',
-        urlParams: {
-        	id: id
-        }
+        name: 'archive'
       }], function (errs, MesModel) {
         var data = MesModel.get('data')
 
         me.setViewPagelet({
-          list: data,
-          aid: id
+          list: data
         })
       }))
     }

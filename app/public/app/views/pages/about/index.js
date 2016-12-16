@@ -1,4 +1,4 @@
-KISSY.add('app/views/pages/archive/archive', function (S, View, MM, VOM, Router, Node, Util) {
+KISSY.add('app/views/pages/about/index', function (S, View, MM, VOM, Router, Node, Util) {
   var $ = Node.all
 
   return View.extend({
@@ -8,15 +8,7 @@ KISSY.add('app/views/pages/archive/archive', function (S, View, MM, VOM, Router,
     render: function () {
       var me = this
 
-      me.manage(MM.fetchAll([{
-        name: 'archive'
-      }], function (errs, MesModel) {
-        var data = MesModel.get('data')
-
-        me.setViewPagelet({
-          list: data
-        })
-      }))
+      me.setViewPagelet()
     }
   })
 },{

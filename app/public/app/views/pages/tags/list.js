@@ -1,4 +1,4 @@
-KISSY.add('app/views/pages/tags/tags', function (S, View, MM, VOM, Router, Node, Util) {
+KISSY.add('app/views/pages/tags/list', function (S, View, MM, VOM, Router, Node, Util) {
   var $ = Node.all
 
   return View.extend({
