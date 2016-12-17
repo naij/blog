@@ -8,6 +8,7 @@ function common(app) {
   app.get('/api/pubinfo', app.controller.member.pubInfo)
   app.post('/api/login', app.controller.member.login)
   app.get('/api/logout', app.controller.member.logout)
+  app.get('/api/feed/rss', app.controller.article.rss)
 }
 
 // 前台接口

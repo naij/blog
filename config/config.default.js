@@ -1,6 +1,9 @@
 /**
  * cdn前缀
  */
+
+exports.host = 'localhost:7001'
+
 exports.staticCDN = '/public'
 
 exports.siteFile = {
@@ -58,6 +61,7 @@ exports.auth = {
     '/api/article/archive',
     '/api/article/bytag',
     '/api/article/taggroup',
+    '/api/feed/rss',
     '/api/tag/list'
   ].concat([
     '/pages/article/list',

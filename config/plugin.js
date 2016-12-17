@@ -9,3 +9,8 @@ exports.static = true
 //   enable: true,
 //   path: path.join(pluginsDir, 'upyun')
 // }
+
+exports.rss = {
+  enable: true,
+  path: path.join(pluginsDir, 'rss')
+}

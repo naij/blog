@@ -8,13 +8,23 @@ module.exports = app => {
     constructor(ctx) {
       super(ctx)
     }
-    * list(type) {
-      let articles = yield this.app.models.Article.findAll({
-        where: {
-          type: type,
-          status: 1
-        }
-      })
+    * list(opt) {
+      let queryOpt = {}
+      let whereOpt = {
+        status: 1
+      }
+
+      if (opt.type) {
+        whereOpt.type = opt.type
+      }
+
+      if (opt.limit) {
+        queryOpt.limit = opt.limit
+      }
+
+      queryOpt.where = whereOpt
+
+      let articles = yield this.app.models.Article.findAll(queryOpt)
       return articles
     }
     * full(type) {

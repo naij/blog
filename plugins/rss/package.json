@@ -1,0 +1,12 @@
+{
+  "name": "rss",
+  "version": "0.0.1",
+  "description": "初始化rssclient",
+  "eggPlugin": {
+    "name": "rss"
+  },
+  "files": [
+    "app",
+    "app.js"
+  ]
+}
