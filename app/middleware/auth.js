@@ -9,12 +9,14 @@
 
 module.exports = (options, app) => {
   return function* auth(next) {
+    let path = this.request.path
+    let unInterceptUrls = options.unInterceptUrls
     // 从session取用户信息
-    this.user = this.session.user
+    let user = this.session.user
 
     // 免登path校验
-    if (!this.user) {
-      if (this.request.path && options.unInterceptUrls.indexOf(this.request.path) == -1) {
+    if (!user) {
+      if (path && /\/api/.test(path) && unInterceptUrls.indexOf(path) == -1) {
         return this.renderJSON({
           code: 403,
           message: 'LOGIN REQUIRED'

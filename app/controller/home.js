@@ -13,3 +13,10 @@ exports.debug = function*() {
   }
   yield this.render('debug.html', config)
 }
+
+exports.notfound = function*() {
+  let config = {
+    staticCDN: this.app.config.staticCDN
+  }
+  yield this.render('404.html', config)
+}

@@ -32,6 +32,7 @@ function admin(app) {
 function pages(app) {
   app.get('/', app.controller.home.index)
   app.get('/debug', app.controller.home.debug)
+  app.get('/404', app.controller.home.notfound)
   app.get('/pages/article/list', app.controller.home.index)
   app.get('/pages/article/detail', app.controller.home.index)
   app.get('/pages/about/index', app.controller.home.index)

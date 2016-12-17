@@ -1,4 +1,4 @@
-KISSY.add('app/views/manage/login', function (S, View, MM) {
+KISSY.add('app/views/manage/login', function (S, Magix, View, MM) {
   return View.extend({
     render: function () {
       var me = this
@@ -15,12 +15,14 @@ KISSY.add('app/views/manage/login', function (S, View, MM) {
         name: "login",
         postParams: formData
       }], function (errs, MesModel) {
+        Magix.local('isLogined', true)
         me.navigate('/manage/index')
       }))
     }
   })
 },{
   requires:[
+    'magix/magix',
     'mxext/view',
     'app/models/modelmanager'
   ]

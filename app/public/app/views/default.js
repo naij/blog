@@ -22,14 +22,19 @@ KISSY.add('app/views/default', function (S, View, VOM, UA, Node, R, Util) {
       var pathname = loc.pathname
       var vframe = VOM.get('magix_vf_main')
       if (vframe) {
-        var pns = pathname.split('/')
-        pns.shift()
-        var folder = pns.shift() || 'home'
-        var view = pns.join('/') || 'index'
-        if (S.endsWith(view, '/')) {
-          view += 'index'
+        if (pathname == '/') {
+          var viewPath = 'app/views/pages/article/list'
+        } else {
+          var pns = pathname.split('/')
+          pns.shift()
+          var folder = pns.shift() || 'home'
+          var view = pns.join('/') || 'index'
+          if (S.endsWith(view, '/')) {
+            view += 'index'
+          }
+          var viewPath = 'app/views/' + folder + '/' + view
         }
-        var viewPath = 'app/views/' + folder + '/' + view
+        
         vframe.mountView(viewPath)
       }
     },

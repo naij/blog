@@ -47,12 +47,18 @@ exports.database = {
 }
 
 /**
+ * 404页面配置
+ */
+exports.notfound = {
+  pageUrl: '/404',
+  enableRedirect: true,
+}
+
+/**
  * 登陆校验中间件
  */
 exports.auth = {
   unInterceptUrls: [
-    '/',
-    '/debug',
     '/api/pubinfo',
     '/api/login',
     '/api/logout',
@@ -63,26 +69,12 @@ exports.auth = {
     '/api/article/taggroup',
     '/api/feed/rss',
     '/api/tag/list'
-  ].concat([
-    '/pages/article/list',
-    '/pages/article/detail',
-    '/pages/about/index',
-    '/pages/tags/list',
-    '/pages/archive/list',
-    '/manage/login',
-    '/manage/index',
-    '/manage/article/list',
-    '/manage/article/add',
-    '/manage/article/edit',
-    '/manage/picture/list',
-    '/manage/tool/list'
-  ])
+  ]
 }
 
 /**
  * 加载的中间件
  */
 exports.middleware = [
-  'auth',
-  'notfoundoverwrite'
+  'auth'
 ]
