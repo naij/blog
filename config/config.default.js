@@ -1,10 +1,12 @@
-/**
- * cdn前缀
- */
+
 
 exports.host = 'localhost:7001'
 
+/**
+ * cdn前缀
+ */
 exports.staticCDN = '/public'
+
 
 exports.siteFile = {
   '/favicon.ico': '/public/favicon.ico',
