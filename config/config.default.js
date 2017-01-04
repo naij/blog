@@ -61,16 +61,16 @@ exports.notfound = {
  */
 exports.auth = {
   unInterceptUrls: [
-    '/api/pubinfo',
-    '/api/login',
-    '/api/logout',
-    '/api/article/list',
-    '/api/article/detail',
-    '/api/article/archive',
-    '/api/article/bytag',
-    '/api/article/taggroup',
-    '/api/feed/rss',
-    '/api/tag/list'
+    '/api/pubinfo.json',
+    '/api/login.json',
+    '/api/logout.json',
+    '/api/article/list.json',
+    '/api/article/detail.json',
+    '/api/article/archive.json',
+    '/api/article/bytag.json',
+    '/api/article/taggroup.json',
+    '/api/feed/rss.json',
+    '/api/tag/list.json'
   ]
 }
 

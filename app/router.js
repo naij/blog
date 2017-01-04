@@ -2,30 +2,30 @@
 
 // 通用接口
 function common(app) {
-  app.get('/api/article/list', app.controller.article.list)
-  app.get('/api/article/detail', app.controller.article.detail)
-  app.get('/api/tag/list', app.controller.tag.list)
-  app.get('/api/pubinfo', app.controller.member.pubInfo)
-  app.post('/api/login', app.controller.member.login)
-  app.get('/api/logout', app.controller.member.logout)
-  app.get('/api/feed/rss', app.controller.article.rss)
+  app.get('/api/article/list.json', app.controller.article.list)
+  app.get('/api/article/detail.json', app.controller.article.detail)
+  app.get('/api/tag/list.json', app.controller.tag.list)
+  app.get('/api/pubinfo.json', app.controller.member.pubInfo)
+  app.post('/api/login.json', app.controller.member.login)
+  app.get('/api/logout.json', app.controller.member.logout)
+  app.get('/api/feed/rss.json', app.controller.article.rss)
 }
 
 // 前台接口
 function front(app) {
-  app.get('/api/article/bytag', app.controller.article.readbytag)
-  app.get('/api/article/archive', app.controller.article.archive)
-  app.get('/api/article/taggroup', app.controller.article.taggroup)
+  app.get('/api/article/bytag.json', app.controller.article.readbytag)
+  app.get('/api/article/archive.json', app.controller.article.archive)
+  app.get('/api/article/taggroup.json', app.controller.article.taggroup)
 }
 
 // 后台接口
 function admin(app) {
-  app.get('/api/article/full', app.controller.article.full)
-  app.post('/api/article/create', app.controller.article.create)
-  app.post('/api/article/update', app.controller.article.update)
-  app.post('/api/article/remove', app.controller.article.remove)
-  app.get('/api/pic/list', app.controller.pic.list)
-  app.post('/api/pic/create', app.controller.pic.create)
+  app.get('/api/article/full.json', app.controller.article.full)
+  app.post('/api/article/create.json', app.controller.article.create)
+  app.post('/api/article/update.json.json', app.controller.article.update)
+  app.post('/api/article/remove.json', app.controller.article.remove)
+  app.get('/api/pic/list.json', app.controller.pic.list)
+  app.post('/api/pic/create.json', app.controller.pic.create)
 }
 
 // 页面路径
