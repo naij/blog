@@ -4,7 +4,7 @@ exports.index = function*() {
   let config = {
     staticCDN: this.app.config.staticCDN
   }
-  yield this.render('debug.html', config)
+  yield this.render('index.html', config)
 }
 
 exports.debug = function*() {
