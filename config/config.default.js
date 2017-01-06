@@ -1,12 +1,10 @@
-
+/**
+ * 项目默认配置
+ **/
 
 exports.host = 'localhost:7001'
 
-/**
- * cdn前缀
- */
-exports.staticCDN = '/public'
-
+exports.cdn = '/public'
 
 exports.siteFile = {
   '/favicon.ico': '/public/favicon.ico',
@@ -27,7 +25,7 @@ exports.security = {
  * 日志级别
  */
 exports.logger = {
-  stdoutLevel: "DEBUG"
+  consoleLevel: "DEBUG"
 }
 
 /**
