@@ -65,7 +65,8 @@ exports.pubInfo = function*() {
   this.renderJSON({
     code: 200,
     data: {
-      isLogined: !!user
+      isLogined: !!user,
+      csrf: this.csrf
     }
   })
 }

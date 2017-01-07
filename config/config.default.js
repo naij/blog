@@ -10,17 +10,6 @@ exports.siteFile = {
   '/favicon.ico': '/public/favicon.ico',
 }
 
-exports.security = {
-  ctoken: {
-    enable: true,
-    ignore: [/api/]
-  },
-  csrf: {
-    enable: true,
-    ignore:[/api/]
-  }
-}
-
 /**
  * 日志级别
  */
