@@ -76,5 +76,6 @@ exports.auth = {
  * 加载的中间件
  */
 exports.middleware = [
-  'auth'
+  'auth',
+  'logger'
 ]
