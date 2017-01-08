@@ -27,14 +27,6 @@ module.exports = app => {
       let articles = yield this.app.models.Article.findAll(queryOpt)
       return articles
     }
-    * full(type) {
-      let articles = yield this.app.models.Article.findAll({
-        where: {
-          type: type
-        }
-      })
-      return articles
-    }
     * detail(id) {
       let article = yield this.app.models.Article.findById(id)
       return article
@@ -92,48 +84,6 @@ module.exports = app => {
         i += count
       }
       return archiveList
-    }
-    * create(postData) {
-      let md = postData.content
-      let html = markdown.makeHtml(md)
-
-      let article = yield this.app.models.Article.create({
-        type: postData.type,
-        tag: postData.tag,
-        title: postData.title,
-        content: html,
-        markdown: md.replace(/&/g, "&amp;"),
-        status: postData.draft ? 0 : 1
-      })
-
-      return article
-    }
-    * update(postData) {
-      let md = postData.content
-      let html = markdown.makeHtml(md)
-
-      let article = yield this.app.models.Article.update({
-        title: postData.title,
-        content: html,
-        markdown: md.replace(/&/g, "&amp;"),
-        status: postData.draft ? 0 : 1
-      }, {
-        where: {
-          id: postData.id
-        }
-      })
-
-      return article
-    }
-    * remove(postData) {
-      let article = yield this.app.models.Article.update({
-        status: 2
-      }, {
-        where: {
-          id: postData.id
-        }
-      })
-      return article
     }
   }
 

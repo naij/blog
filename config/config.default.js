@@ -14,14 +14,14 @@ exports.siteFile = {
  * 日志级别
  */
 exports.logger = {
-  consoleLevel: "DEBUG"
+  consoleLevel: 'DEBUG'
 }
 
 /**
  * session配置
  */
 exports.session = {
-  store: "cookie",
+  store: 'cookie',
   maxAge: 365 * 24 * 3600 * 1000
 }
 
@@ -29,10 +29,10 @@ exports.session = {
  * 数据库信息
  */
 exports.database = {
-  database: "blog",
-  host: "127.0.0.1",
-  dialect: "mysql",
-  port: "3306"
+  database: 'ueqir',
+  host: '127.0.0.1',
+  dialect: 'mysql',
+  port: '3306'
 }
 
 /**
@@ -44,27 +44,8 @@ exports.notfound = {
 }
 
 /**
- * 登陆校验中间件
- */
-exports.auth = {
-  unInterceptUrls: [
-    '/api/pubinfo.json',
-    '/api/login.json',
-    '/api/logout.json',
-    '/api/article/list.json',
-    '/api/article/detail.json',
-    '/api/article/archive.json',
-    '/api/article/bytag.json',
-    '/api/article/taggroup.json',
-    '/api/feed/rss.json',
-    '/api/tag/list.json'
-  ]
-}
-
-/**
  * 加载的中间件
  */
 exports.middleware = [
-  'auth',
   'logger'
 ]

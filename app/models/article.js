@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: 1
     }
   }, {
-    tableName: 'articles',
+    tableName: 'blog-articles',
     timestamps: true,
     underscored: false
   })
