@@ -10,3 +10,7 @@ exports.rss = {
   path: path.join(pluginsDir, 'rss')
 }
 
+exports.sequelize = {
+  enable: true,
+  path: path.join(pluginsDir, 'sequelize')
+}
