@@ -59,23 +59,25 @@ module.exports = app => {
           'id',
           'title',
           'type',
-          [this.app.models.sequelize.fn('date_format', this.app.models.sequelize.col('createdAt'), '%Y-%m'), 'ym']
+          'createdAt',
+          [this.app.models.sequelize.fn('date_format', this.app.models.sequelize.col('createdAt'), '%Y'), 'y']
         ],
         where: {
           status: 1
         },
-        raw: true
+        raw: true,
+        order: 'createdAt DESC'
       })
 
       let archiveList = []
       for (let i = 0; i < articles.length;) {
         let count = 0
         let obj = {
-          ym: articles[i].ym,
+          y: articles[i].y,
           list: []
         }
         for (let j = i; j < articles.length; j++) {
-          if (articles[i].ym == articles[j].ym) {
+          if (articles[i].y == articles[j].y) {
             obj.list.push(articles[j])
             count ++
           }
