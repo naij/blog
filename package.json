@@ -23,10 +23,8 @@
     "sequelize": "^3.5.1",
     "markdown-js": "~0.0.3",
     "jade": "^1.11.0",
-    "images": "^3.0.0",
     "lodash": "^4.17.2",
     "thunkify": "^2.1.2",
-    "upyun": "^2.0.4",
     "chalk": "^1.1.1",
     "rss": "^1.2.1"
   },

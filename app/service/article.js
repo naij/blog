@@ -9,7 +9,9 @@ module.exports = app => {
       super(ctx)
     }
     * list(opt) {
-      let queryOpt = {}
+      let queryOpt = {
+        order: 'createdAt DESC'
+      }
       let whereOpt = {
         status: 1
       }
