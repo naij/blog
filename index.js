@@ -1,3 +1,4 @@
 require('sugar-coat').startCluster({
-  baseDir: __dirname
+  baseDir: __dirname,
+  port: '7001'
 })

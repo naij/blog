@@ -1,15 +1,19 @@
 'use strict'
 
-exports.index = function*() {
-  let config = {
-    cdn: this.app.config.cdn
-  }
-  yield this.render('index.html', config)
-}
+const { Controller } = require('egg')
 
-exports.notfound = function*() {
-  let config = {
-    cdn: this.app.config.cdn
+class HomeController extends Controller {
+  async index() {
+    let config = {
+      cdn: this.app.config.cdn
+    }
+    await this.render('index.html', config)
   }
-  yield this.render('404.html', config)
+
+  async notfound() {
+    let config = {
+      cdn: this.app.config.cdn
+    }
+    await this.render('404.html', config)
+  }
 }

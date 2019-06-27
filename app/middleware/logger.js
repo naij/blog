@@ -21,27 +21,27 @@ let excludeRequestLogExts = [
 ]
 
 module.exports = (options, app) => {
-  return function* logger(next) {
-    yield next
+  return async function logger(ctx, next) {
+    await next()
 
-    let requestExt = path.extname(this.path)
+    let requestExt = path.extname(ctx.path)
     if (excludeRequestLogExts.indexOf(requestExt) >= 0) {
       return
     }
-    let runtime = Date.now() - this.starttime
+    let runtime = Date.now() - ctx.starttime
 
     let params = ''
 
-    if (!_.isEmpty(this.query)) {
-      params += 'query: ' + JSON.stringify(this.query)
+    if (!_.isEmpty(ctx.query)) {
+      params += 'query: ' + JSON.stringify(ctx.query)
     }
-    if (!_.isEmpty(this.request.body)) {
+    if (!_.isEmpty(ctx.request.body)) {
       if (params) {
         params += ' '
       }
-      params += 'body:' + JSON.stringify(this.request.body)
+      params += 'body:' + JSON.stringify(ctx.request.body)
     }
 
-    this.logger.info(`${params} status ${this.status} (${runtime}ms)`)
+    ctx.logger.info(`${params} status ${ctx.status} (${runtime}ms)`)
   }
 }

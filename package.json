@@ -1,12 +1,12 @@
 {
   "name": "blog-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "naij"
   },
   "private": true,
   "scripts": {
-    "dev": "sugar-coat-bin dev",
+    "dev": "sugar-coat-bin dev --port=7001",
     "debug": "sugar-coat-bin debug",
     "lint": "eslint app test",
     "test": "npm run lint && npm run test-local",
@@ -16,7 +16,7 @@
     "changelog": "./node_modules/.bin/conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "dependencies": {
-    "sugar-coat": "^0.1.1",
+    "sugar-coat": "^0.2.0",
     "mz": "^2.6.0",
     "moment": "^2.17.0",
     "mysql": "^2.5.2",
