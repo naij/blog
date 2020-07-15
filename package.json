@@ -31,7 +31,7 @@
     "jade": "1.9.2",
     "thunkify": "2.1.2",
     "request": "2.53.0",
-    "lodash": "3.2.0",
+    "lodash": "4.17.19",
     "config": "1.1.0",
     "upyun": "0.0.3",
     "qr-image": "3.1.0",
